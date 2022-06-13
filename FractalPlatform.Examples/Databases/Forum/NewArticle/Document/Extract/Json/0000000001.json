@@ -1,0 +1,12 @@
+{
+  "Title": "",
+  "Who": "",
+  "CountMessages": 1,
+  "CountViews": 1,
+  "Messages": [
+    {
+      "Who": "Bob",
+      "Message": "Test"
+    }
+  ]
+}

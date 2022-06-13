@@ -1,0 +1,20 @@
+{
+  "LoginButton": {
+    "ControlType": "Button"
+  },
+  "LogoutButton": {
+    "ControlType": "Button"
+  },
+  "Register": {
+    "ControlType": "Button"
+  },
+  "Articles": {
+    "ControlType": "Button"
+  },
+  "NewArticle": {
+    "ControlType": "Button"
+  },
+  "UserName": {
+    "ControlType": "Label"
+  }
+}

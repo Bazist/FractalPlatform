@@ -1,0 +1,12 @@
+{
+   "Title": "My Second Article",
+   "Who": "Bob",
+   "CountMessages": "1",
+   "CountViews": "3",
+   "Messages": [
+      {
+         "Who": "Bob",
+         "Message": "Test"
+      }
+   ]
+}

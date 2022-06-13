@@ -1,0 +1,16 @@
+{
+   "Title": "My New Article 3",
+   "Who": "Bob",
+   "CountMessages": "2",
+   "CountViews": "10",
+   "Messages": [
+      {
+         "Who": "Bob",
+         "Message": "Test"
+      },
+      {
+         "Who": "tetrsw",
+         "Message": "esfsefsef"
+      }
+   ]
+}
