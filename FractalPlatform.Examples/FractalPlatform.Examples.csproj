@@ -11,6 +11,7 @@
   <ItemGroup>
     <Folder Include="Databases\" />
     <Folder Include="Layouts\" />
+    <Folder Include="Files\" />
   </ItemGroup>
 
   <ItemGroup>

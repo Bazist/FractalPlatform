@@ -9,6 +9,8 @@
         public string Assembly { get; set; }
 
         public bool IsDeployDatabase { get; set; }
+
+        public bool IsDeployFiles { get; set; }
   
         public bool IsDeployApplication { get; set; }
 

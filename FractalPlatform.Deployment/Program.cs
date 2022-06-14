@@ -64,6 +64,7 @@ namespace FractalPlatform.Deployment
                                               string assemblyFile,
                                               string deploymentKey,
                                               bool isDeployDatabase,
+                                              bool isDeployFiles,
                                               bool isDeployApplication)
         {
             var assemblyName = assemblyFile.Replace(".dll", "");
@@ -78,6 +79,19 @@ namespace FractalPlatform.Deployment
                     var fileBytes = await File.ReadAllBytesAsync(zipPath);
 
                     await UploadAsync(baseUrl, appName, "Databases", $"{appName}.zip", fileBytes, deploymentKey);
+                }
+            }
+
+            if (isDeployFiles)
+            {
+                //upload database
+                var zipPath = ZipDirectory("Files", assemblyName, appName);
+
+                if (zipPath != null)
+                {
+                    var fileBytes = await File.ReadAllBytesAsync(zipPath);
+
+                    await UploadAsync(baseUrl, appName, "Files", $"{appName}.zip", fileBytes, deploymentKey);
                 }
             }
 
@@ -122,6 +136,7 @@ namespace FractalPlatform.Deployment
                         options.Assembly,
                         options.DeploymentKey,
                         options.IsDeployDatabase,
+                        options.IsDeployFiles,
                         options.IsDeployApplication).Wait();
 
             Console.WriteLine("Application is deployed !");
