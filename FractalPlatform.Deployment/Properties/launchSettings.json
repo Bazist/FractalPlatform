@@ -1,8 +1,7 @@
 {
   "profiles": {
     "BigDoc.Deployment": {
-      "commandName": "Project",
-      "commandLineArgs": "\"http://booben.com/jupiter\" \"HelloWorld\" \"FractalPlatform.Examples.dll\""
+      "commandName": "Project"
     }
   }
 }

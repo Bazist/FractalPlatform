@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
@@ -107,37 +108,26 @@ namespace FractalPlatform.Deployment
 
         static void Main(string[] args)
         {
-            if (args.Length != 3)
-            {
-                throw new Exception("Command line: BigDoc.Deployment.exe [baseUrl] [appName] [assemblyName]");
-            }
+            var appSettings = File.ReadAllText("appsettings.json");
 
-            var baseUrl = args[0];
+            var options = JsonConvert.DeserializeObject<Options>(appSettings);
 
-            var appName = args[1];
+            Console.WriteLine($"Start deploying {options.AppName} application to {options.BaseUrl} host ...");
 
-            var assemblyName = args[2];
-
-            var isDeployDatabase = true;
-
-            var isDeployApplication = true;
-
-            var deploymentKey = "sandbox";
-
-            var isRunBrowser = true;
-
-            Console.WriteLine($"Start deploying {appName} application to {baseUrl} host ...");
-
-            UploadAsync(baseUrl, appName, assemblyName, deploymentKey, isDeployDatabase, isDeployApplication).Wait();
+            UploadAsync(options.BaseUrl,
+                        options.AppName,
+                        options.Assembly,
+                        options.DeploymentKey,
+                        options.IsDeployDatabase,
+                        options.IsDeployApplication).Wait();
 
             Console.WriteLine("Application is deployed !");
 
-            if (isRunBrowser)
+            if (options.IsRunBrowser)
             {
-                var url = string.Format($"{baseUrl}?appName={appName}");
+                var url = string.Format($"{options.BaseUrl}?appName={options.AppName}");
 
                 Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
-
             }
         }
     }
