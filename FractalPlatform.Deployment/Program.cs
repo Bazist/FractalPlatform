@@ -4,23 +4,24 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace FractalPlatform.Deployment
 {
     class Program
     {
-        const string _deploymentPath = @"..\..\..\..\";
+        const string _deploymentPath = @"..\..\..\..";
 
-        static string ZipDirectory(string directoryName, string appName)
+        static string ZipDirectory(string directoryName, string assemblyName, string appName)
         {
-            string startPath = @$"{_deploymentPath}\BigDoc.App\{directoryName}\{appName}";
-            
+            string startPath = @$"{_deploymentPath}\{assemblyName}\{directoryName}\{appName}";
+
             if (Directory.Exists(startPath))
             {
-                string zipPath = @$"{_deploymentPath}\BigDoc.Deployment\{directoryName}_{appName}.zip";
+                string zipPath = @$"{_deploymentPath}\{Assembly.GetExecutingAssembly().GetName().Name}\{directoryName}_{appName}.zip";
 
-                if(File.Exists(zipPath))
+                if (File.Exists(zipPath))
                 {
                     File.Delete(zipPath);
                 }
@@ -60,15 +61,17 @@ namespace FractalPlatform.Deployment
 
         private static async Task UploadAsync(string baseUrl,
                                               string appName,
-                                              string assemblyName,
+                                              string assemblyFile,
                                               string deploymentKey,
                                               bool isDeployDatabase,
                                               bool isDeployApplication)
         {
+            var assemblyName = assemblyFile.Replace(".dll", "");
+
             if (isDeployDatabase)
             {
                 //upload database
-                var zipPath = ZipDirectory("Databases", appName);
+                var zipPath = ZipDirectory("Databases", assemblyName, appName);
 
                 if (zipPath != null)
                 {
@@ -81,7 +84,7 @@ namespace FractalPlatform.Deployment
             if (isDeployApplication)
             {
                 //upload layouts
-                var zipPath = ZipDirectory("Layouts", appName);
+                var zipPath = ZipDirectory("Layouts", assemblyName, appName);
 
                 if (zipPath != null)
                 {
@@ -92,7 +95,7 @@ namespace FractalPlatform.Deployment
 
                 //upload assembly
 #if DEBUG
-                var filePath = @$"{_deploymentPath}\BigDoc.App\bin\Debug\netcoreapp3.1\{assemblyName}";
+                var filePath = @$"{_deploymentPath}\{assemblyName}\bin\Debug\netcoreapp3.1\{assemblyFile}";
 #else
             var filePath = @$"{_deploymentPath}\BigDoc.App\bin\Release\netcoreapp3.1\{assemblyName}";
 #endif
@@ -101,7 +104,7 @@ namespace FractalPlatform.Deployment
                 {
                     var fileBytes = await File.ReadAllBytesAsync(filePath);
 
-                    await UploadAsync(baseUrl, appName, "Assembly", assemblyName, fileBytes, deploymentKey);
+                    await UploadAsync(baseUrl, appName, "Assembly", assemblyFile, fileBytes, deploymentKey);
                 }
             }
         }
