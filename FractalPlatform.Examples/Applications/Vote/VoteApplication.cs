@@ -19,13 +19,13 @@ namespace FractalPlatform.Examples
         public override void OnStart(Context context)
         {
             Client.SetDefaultCollection("Questionary")
-                  .WantMergeDocumentFor("Report", 1)
+                  .WantMergeDocumentFor("Report", Constants.FIRST_DOC_ID)
                   .OpenForm(result => 
                   {
                       if(result.Result)
                       {
                           Client.SetDefaultCollection("Report")
-                                .OpenForm(1);
+                                .OpenForm(Constants.FIRST_DOC_ID);
                       }
                   });
         }

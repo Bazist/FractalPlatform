@@ -117,7 +117,7 @@ namespace FractalPlatform.Examples
                     {
                         Client.SetDefaultCollection("Drivers")
                               .GetWhere(key)
-                              .Update("{'NewOrders':[{'Who':'" + UserContext.User.Name + "'}]}");
+                              .Update(DQL("{'NewOrders':[{'Who':@Who}]}", UserContext.User.Name));
 
                         break;
                     }
