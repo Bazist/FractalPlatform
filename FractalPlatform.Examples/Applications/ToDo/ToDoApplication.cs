@@ -18,7 +18,7 @@ namespace FractalPlatform.Examples
 
         public override void OnStart(Context context)
         {
-            Client.SetDefaultCollection("ToDo")
+            Client.SetDefaultCollection("ToDoList")
                   .GetDoc(Constants.FIRST_DOC_ID)
                   .WantModifyExistingDocuments()
                   .OpenForm();
