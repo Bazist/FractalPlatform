@@ -8,7 +8,7 @@ namespace FractalPlatform.Examples
     {
         public HelloWorldApplication(string workingFolder,
                                      IFormFactory formFactory) : base(workingFolder,
-                                                                "HelloWorld",
+                                                                null,
                                                                 formFactory)
         {
         }
