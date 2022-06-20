@@ -1,0 +1,11 @@
+{
+  "Style": "Save:false;Cancel:false",
+  "Categories": [
+    {
+      "Style": "Save:true;Cancel:true",
+      "Completed": {
+        "ControlType": "CheckBox"
+      }
+    }
+  ]
+}
