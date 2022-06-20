@@ -8,12 +8,10 @@ namespace FractalPlatform.Examples
 {
     public class TaxiApplication : BaseApplication
     {
-        public TaxiApplication(Guid sessionId,
-                               BigDocInstance instance,
-                               IFormFactory formFactory) : base(sessionId,
-                                                                instance,
-                                                                formFactory,
-                                                                "Taxi")
+        public TaxiApplication(string workingFolder,
+                               IFormFactory formFactory) : base(workingFolder,
+                                                                "Taxi",
+                                                                formFactory)
         {
         }
 

@@ -7,12 +7,10 @@ namespace FractalPlatform.Examples
 {
     public class VoteApplication : BaseApplication
     {
-        public VoteApplication(Guid sessionId,
-                               BigDocInstance instance,
-                               IFormFactory formFactory) : base(sessionId,
-                                                                instance,
-                                                                formFactory,
-                                                                "Vote")
+        public VoteApplication(string workingFolder,
+                               IFormFactory formFactory) : base(workingFolder,
+                                                                "Vote",
+                                                                formFactory)
         {
         }
 

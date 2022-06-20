@@ -11,12 +11,10 @@ namespace FractalPlatform.Examples
 {
     public class SupermarketApplication : BaseApplication
     {
-        public SupermarketApplication(Guid sessionId,
-                                      BigDocInstance instance,
-                                      IFormFactory formFactory) : base(sessionId,
-                                                                    instance,
-                                                                    formFactory,
-                                                                    "Supermarket")
+        public SupermarketApplication(string workingFolder,
+                               IFormFactory formFactory) : base(workingFolder,
+                                                                "Supermarket",
+                                                                formFactory)
         {
         }
 

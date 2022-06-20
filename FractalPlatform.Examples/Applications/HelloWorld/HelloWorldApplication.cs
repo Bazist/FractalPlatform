@@ -6,11 +6,10 @@ namespace FractalPlatform.Examples
 {
     public class HelloWorldApplication : BaseApplication
     {
-        public HelloWorldApplication(Guid sessionId,
-                                   BigDocInstance instance, 
-                                   IFormFactory formFactory) : base(sessionId,
-                                                                    instance,
-                                                                    formFactory)
+        public HelloWorldApplication(string workingFolder,
+                                     IFormFactory formFactory) : base(workingFolder,
+                                                                "HelloWorld",
+                                                                formFactory)
         {
         }
 

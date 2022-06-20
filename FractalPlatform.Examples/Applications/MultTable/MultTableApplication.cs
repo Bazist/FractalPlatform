@@ -11,12 +11,10 @@ namespace FractalPlatform.Examples
 {
     public class MultTableApplication : BaseApplication
     {
-        public MultTableApplication(Guid sessionId,
-                                    BigDocInstance instance,
-                                    IFormFactory formFactory) : base(sessionId,
-                                                                    instance,
-                                                                    formFactory,
-                                                                    "MultTable")
+        public MultTableApplication(string workingFolder,
+                               IFormFactory formFactory) : base(workingFolder,
+                                                                "MultTable",
+                                                                formFactory)
         {
         }
 
