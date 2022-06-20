@@ -3,9 +3,13 @@
   "Categories": [
     {
       "Style": "Save:true;Cancel:true",
-      "Completed": {
-        "ControlType": "CheckBox"
-      }
+      "ToDos": [
+        {
+          "Completed": {
+            "ControlType": "CheckBox"
+          }
+        }
+      ]
     }
   ]
 }
