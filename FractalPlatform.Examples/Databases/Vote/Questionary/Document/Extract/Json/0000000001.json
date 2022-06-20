@@ -1,6 +1,8 @@
 {
   "Question": "Who is next president ?",
-  "Poroshenko": false,
-  "Zelenskiy": false,
-  "Other": false
+  "Options": {
+    "Poroshenko": false,
+    "Zelenskiy": false,
+    "Other": false
+  }
 }

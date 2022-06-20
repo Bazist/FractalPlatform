@@ -1,14 +1,8 @@
 {
-   "Other": {
-      "ControlType": "CheckBox"
-   },
-   "Poroshenko": {
-      "ControlType": "CheckBox"
-   },
-   "Question": {
-      "ControlType": "Label"
-   },
-   "Zelenskiy": {
-      "ControlType": "CheckBox"
-   }
+  "Question": {
+    "ControlType": "Label"
+  },
+  "Options": {
+    "ControlType": "RadioButton"
+  }
 }
