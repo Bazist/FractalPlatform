@@ -48,6 +48,8 @@ namespace FractalPlatform.Examples.Applications.Forum
                 Client.SetDefaultCollection("Articles")
                       .GetDoc(docID)
                       .Update(new { CountViews = int.Parse(countViews) + 1 });
+
+                collection.ReloadData();
             }
 
             return true;

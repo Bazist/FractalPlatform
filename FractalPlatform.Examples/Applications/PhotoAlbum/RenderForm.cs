@@ -18,6 +18,8 @@ namespace FractalPlatform.Examples.Applications.PhotoAlbum
             {
                 var sb = new StringBuilder();
 
+                sb.Append("<tr><td collspan=2>");
+
                 foreach(DataRow dr in domControl.DataTable.Rows)
                 {
                     sb.Append(@$"<div align='left'>{dr["Title"]}</div>
@@ -25,6 +27,8 @@ namespace FractalPlatform.Examples.Applications.PhotoAlbum
                                            src='{GetFilesUrl()}{dr["Photo"]}'>
                                  </div><br><br>");
                 }
+
+                sb.Append("</td></tr>");
 
                 return sb.ToString();
             }

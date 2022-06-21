@@ -18,14 +18,14 @@ namespace FractalPlatform.Examples.Applications.Forum
             {
                 var sb = new StringBuilder();
 
-                sb.Append("<div align='left'>Chat messages:</div>");
+                sb.Append("<tr><td collspan=2><div align='left'>Chat messages:</div>");
 
                 foreach(DataRow dr in domControl.DataTable.Rows)
                 {
                     sb.Append($"<div align='left'>[{dr["OnDate"]}]&nbsp;{dr["Who"]}:&nbsp;{dr["Message"]}</div>");
                 }
 
-                sb.Append("<br>");
+                sb.Append("</td></tr><br>");
 
                 return sb.ToString();
             }
