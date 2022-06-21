@@ -1,0 +1,12 @@
+{
+  "Photos": [
+    {
+      "Title": {
+        "ControlType": "Label"
+      },
+      "Photo": {
+        "ControlType": "Picture"
+      }
+    }
+  ]
+}
