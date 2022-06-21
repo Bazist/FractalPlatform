@@ -1,11 +1,4 @@
 {
-  "MyDashboard": {
-    "Disallow": {
-      "Read": [
-        "Guest"
-      ]
-    }
-  },
   "NewArticle": {
     "Disallow": {
       "Read": [

@@ -4,9 +4,10 @@
    "CountMessages": "1",
    "CountViews": "4",
    "Messages": [
-      {
-         "Who": "Bob",
-         "Message": "Test"
-      }
+    {
+      "OnDate": "2022-06-22",
+      "Who": "Bot",
+      "Message": "Test"
+    }
    ]
 }

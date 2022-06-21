@@ -6,7 +6,7 @@ using System;
 
 namespace FractalPlatform.Examples.Applications.Forum
 {
-    public class ForumApplication : BaseApplication
+    public class ForumApplication : DashboardApplication
     {
         public ForumApplication(string workingFolder,
                                IFormFactory formFactory) : base(workingFolder,
@@ -18,35 +18,7 @@ namespace FractalPlatform.Examples.Applications.Forum
         public override void OnStart(Context context)
         {
             Client.SetDefaultCollection("Dashboard")
-                  .OpenForm(1);
-        }
-
-        private class LoginInfo
-        {
-            public string Name { get; set; }
-            public string Password { get; set; }
-        }
-
-        private void Login()
-        {
-            var doc = new LoginInfo();
-            doc.Name = "Bob";
-            doc.Password = "Bob";
-
-            FormBuilder.OpenForm(UserContext, doc, null, result =>
-            {
-                if (result.Result)
-                {
-                    Client.SetDefaultCollection("Users")
-                          .GetWhere(doc)
-                          .SetUserContext();
-                }
-            });
-        }
-
-        private void Logout()
-        {
-            UserContext.ResetToGuest();
+                  .OpenForm(Constants.FIRST_DOC_ID);
         }
 
         public void Articles()
@@ -64,18 +36,10 @@ namespace FractalPlatform.Examples.Applications.Forum
                   .OpenForm();
         }
 
-        public void Register()
-        {
-            Client.SetDefaultCollection("NewUser")
-                  .WantCreateNewDocumentFor("Users")
-                  .OpenForm();
-        }
-
         public override bool OnOpenForm(Context context, Collection collection, KeyMap key, uint docID)
         {
             if(collection.Name == "Articles" &&
-               docID != Constants.ANY_DOC_ID &&
-               key.IsEmpty)
+               docID != Constants.ANY_DOC_ID)
             {
                 var countViews = Client.SetDefaultCollection("Articles")
                                        .GetDoc(docID)
@@ -137,5 +101,7 @@ namespace FractalPlatform.Examples.Applications.Forum
 
             return true;
         }
+
+        public override BaseRenderForm CreateRenderForm(string formName) => new RenderForm(this);
     }
 }
