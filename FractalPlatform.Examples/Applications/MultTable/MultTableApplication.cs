@@ -7,7 +7,7 @@ using System;
 using System.Linq;
 using System.Text;
 
-namespace FractalPlatform.Examples
+namespace FractalPlatform.Examples.Applications.MultTable
 {
     public class MultTableApplication : BaseApplication
     {

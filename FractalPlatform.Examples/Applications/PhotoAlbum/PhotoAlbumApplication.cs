@@ -2,7 +2,7 @@
 using BigDoc.Client.UI;
 using BigDoc.Database.Engine;
 
-namespace FractalPlatform.Examples
+namespace FractalPlatform.Examples.Applications.PhotoAlbum
 {
     public class PhotoAlbumApplication : BaseApplication
     {
@@ -19,13 +19,12 @@ namespace FractalPlatform.Examples
                   .WantCreateNewDocumentForArray("Photos", Constants.FIRST_DOC_ID, "{'Photos':[$]}")
                   .OpenForm(result =>
                   {
-                      if (result.Result)
-                      {
-                          Client.SetDefaultCollection("Photos")
-                                .GetDoc(Constants.FIRST_DOC_ID)
-                                .OpenForm();
-                      }
+                      Client.SetDefaultCollection("Photos")
+                            .GetDoc(Constants.FIRST_DOC_ID)
+                            .OpenForm();
                   });
         }
+
+        public override BaseRenderForm CreateRenderForm(string renderFormName) => new RenderForm(this);
     }
 }

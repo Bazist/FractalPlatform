@@ -7,7 +7,7 @@ using BigDoc.Common.Enums;
 using BigDoc.Database.Storages;
 using BigDoc.Client;
 
-namespace FractalPlatform.Examples
+namespace FractalPlatform.Examples.Applications.Supermarket
 {
     public class SupermarketApplication : BaseApplication
     {

@@ -3,7 +3,7 @@ using BigDoc.Client.UI;
 using BigDoc.Database.Engine;
 using System;
 
-namespace FractalPlatform.Examples
+namespace FractalPlatform.Examples.Applications.ToDo
 {
     public class ToDoApplication : BaseApplication
     {

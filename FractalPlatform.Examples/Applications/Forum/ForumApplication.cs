@@ -4,7 +4,7 @@ using BigDoc.Database.Engine;
 using BigDoc.Database.Storages;
 using System;
 
-namespace FractalPlatform.Examples
+namespace FractalPlatform.Examples.Applications.Forum
 {
     public class ForumApplication : BaseApplication
     {

@@ -2,7 +2,7 @@
 using BigDoc.Database.Engine;
 using System;
 
-namespace FractalPlatform.Examples
+namespace FractalPlatform.Examples.Applications.HelloWorld
 {
     public class HelloWorldApplication : BaseApplication
     {
