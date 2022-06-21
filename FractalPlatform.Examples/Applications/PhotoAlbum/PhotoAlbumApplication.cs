@@ -25,6 +25,6 @@ namespace FractalPlatform.Examples.Applications.PhotoAlbum
                   });
         }
 
-        public override BaseRenderForm CreateRenderForm(string renderFormName) => new RenderForm(this);
+        public override BaseRenderForm CreateRenderForm(string formName) => new RenderForm(this);
     }
 }

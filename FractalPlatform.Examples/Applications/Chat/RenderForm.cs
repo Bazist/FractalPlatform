@@ -3,7 +3,7 @@ using BigDoc.Client.UI.DOM.Controls.Grid;
 using System.Data;
 using System.Text;
 
-namespace FractalPlatform.Examples.Applications.PhotoAlbum
+namespace FractalPlatform.Examples.Applications.Chat
 {
     public class RenderForm: BaseRenderForm
     {
@@ -14,16 +14,15 @@ namespace FractalPlatform.Examples.Applications.PhotoAlbum
 
         public override string RenderGrid(GridDOMControl domControl)
         {
-            if(domControl.Key == "Photos")
+            if(domControl.Key == "Messages")
             {
                 var sb = new StringBuilder();
 
+                sb.Append("<div>Chat messages:</div>");
+
                 foreach(DataRow dr in domControl.DataTable.Rows)
                 {
-                    sb.Append(@$"<div align='left'>{dr["Title"]}</div>
-                                 <div><img style='max-width:640px;max-height:640px'
-                                           src='{GetFilesUrl()}{dr["Photo"]}'>
-                                 </div><br><br>");
+                    sb.Append($"<div align='left'>[{dr["OnDate"]}]&nbsp;{dr["Who"]}:&nbsp;{dr["Message"]}</div>");
                 }
 
                 return sb.ToString();
