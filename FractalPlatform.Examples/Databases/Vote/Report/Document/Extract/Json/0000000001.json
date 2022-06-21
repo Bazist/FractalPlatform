@@ -1,8 +1,8 @@
 {
-  "Question": "Who is next president ?",
+  "Question": "Which language do you prefer ?",
   "Options": {
-    "Poroshenko": 4,
-    "Zelenskiy": 0,
+    "C#": 0,
+    "Java": 0,
     "Other": 0
   }
 }
