@@ -1,8 +1,6 @@
 ﻿using BigDoc.Client;
 using BigDoc.Client.UI;
 using BigDoc.Database.Engine;
-using BigDoc.Database.Storages;
-using System;
 
 namespace FractalPlatform.Examples
 {

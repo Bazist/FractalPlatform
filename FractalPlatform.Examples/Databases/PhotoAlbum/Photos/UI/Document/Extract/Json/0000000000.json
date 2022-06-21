@@ -1,4 +1,11 @@
 {
+  "Enabled": false,
+  "Title": {
+    "ControlType": "Label"
+  },
+  "UploadNewPhoto": {
+    "ControlType": "Link"
+  },
   "Photos": [
     {
       "Title": {

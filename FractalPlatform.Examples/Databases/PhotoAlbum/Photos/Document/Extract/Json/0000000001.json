@@ -1,3 +1,4 @@
 {
-   "Title": "My Album"
+  "Title": "My Album",
+  "UploadNewPhoto": "~/../../?appName=PhotoAlbum"
 }
