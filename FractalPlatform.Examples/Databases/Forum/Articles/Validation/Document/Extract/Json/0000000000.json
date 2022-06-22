@@ -2,6 +2,6 @@
   "Message": {
     "IsRequired": true,
     "MinLen": 3,
-    "MaxLen": 16
+    "MaxLen": 1024
   }
 }
