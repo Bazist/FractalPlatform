@@ -23,6 +23,8 @@ namespace FractalPlatform.Examples.Applications.Forum
 
         private void SendMessage(FormResult result)
         {
+            Log("Result={0}", result.Result);
+
             if (result.Result)
             {
                 //get message
@@ -31,10 +33,14 @@ namespace FractalPlatform.Examples.Applications.Forum
                                     .GetDoc(UserContext, result.DocID)
                                     .Value("{'Message':$}");
 
+                Log("Message={0}", message);
+
                 //get user avatar
                 var avatar = Client.SetDefaultCollection("Users")
                                    .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
                                    .Value("{'Avatar':$}");
+
+                Log("Avatar={0}", avatar);
 
                 //add new message
                 Client.SetDefaultCollection("Articles")
@@ -80,7 +86,7 @@ namespace FractalPlatform.Examples.Applications.Forum
                       .GetDoc(docID)
                       .Update(new { CountViews = int.Parse(countViews) + 1 });
 
-                collection.ReloadData();
+                //collection.ReloadData();
             }
 
             return true;
