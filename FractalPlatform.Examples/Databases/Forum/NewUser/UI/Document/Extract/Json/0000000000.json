@@ -1,5 +1,8 @@
 {
   "Password": {
     "Style": "Password:true"
+  },
+  "Avatar": {
+    "ControlType": "UploadFile"
   }
 }

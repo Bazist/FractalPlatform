@@ -1,13 +1,7 @@
 {
-   "Title": "My First Article",
-   "Who": "Bob",
-   "CountMessages": "1",
-   "CountViews": "4",
-   "Messages": [
-    {
-      "OnDate": "2022-06-22",
-      "Who": "Bot",
-      "Message": "Test"
-    }
-   ]
+  "Title": "My First Article",
+  "Who": "Bob",
+  "CountMessages": "1",
+  "CountViews": "4",
+  "Message": ""
 }

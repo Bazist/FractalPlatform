@@ -1,6 +1,11 @@
 {
+  "Style": "Save:Send",
   "Enabled": false,
   "Messages": {
-    "Enabled": true 
+    "Enabled": true
+  },
+  "Message": {
+    "ControlType": "RichTextBox",
+    "Enabled": true
   }
 }

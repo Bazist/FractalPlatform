@@ -7,5 +7,8 @@
   },
   "CountViews": {
     "Visible": false
+  },
+  "Message": {
+    "Visible": false
   }
 }

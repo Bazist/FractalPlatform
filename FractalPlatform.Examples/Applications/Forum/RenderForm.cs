@@ -9,7 +9,6 @@ namespace FractalPlatform.Examples.Applications.Forum
     {
         public RenderForm(BaseApplication application) : base(application)
         {
-
         }
 
         public override string RenderGrid(GridDOMControl domControl)
@@ -17,15 +16,20 @@ namespace FractalPlatform.Examples.Applications.Forum
             if(domControl.Key == "Messages")
             {
                 var sb = new StringBuilder();
-
-                sb.Append("<tr><td collspan=2><div align='left'>Chat messages:</div>");
-
+                                
                 foreach(DataRow dr in domControl.DataTable.Rows)
                 {
-                    sb.Append($"<div align='left'>[{dr["OnDate"]}]&nbsp;{dr["Who"]}:&nbsp;{dr["Message"]}</div>");
+                    sb.Append(@$"<tr>
+                                    <td style='border:1px solid white'>
+                                       <img style='max-width:50px;max-height:50px' src='{GetFilesUrl()}{dr["Avatar"]}'>
+                                       <div>{dr["Who"]}</div>
+                                       <div>{dr["OnDate"]}</div>
+                                    </td>
+                                    <td  style='border:1px solid white' align='left'>
+                                        <div>{dr["Message"]}</div>
+                                    </td>
+                                 </tr>");
                 }
-
-                sb.Append("</td></tr><br>");
 
                 return sb.ToString();
             }

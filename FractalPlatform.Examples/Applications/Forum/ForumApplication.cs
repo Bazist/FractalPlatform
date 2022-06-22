@@ -21,12 +21,43 @@ namespace FractalPlatform.Examples.Applications.Forum
                   .OpenForm(Constants.FIRST_DOC_ID);
         }
 
+        private void SendMessage(FormResult result)
+        {
+            if (result.Result)
+            {
+                //get message
+                var message = result.Collection
+                                    .DocumentStorage
+                                    .GetDoc(UserContext, result.DocID)
+                                    .Value("{'Message':$}");
+
+                //get user avatar
+                var avatar = Client.SetDefaultCollection("Users")
+                                   .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
+                                   .Value("{'Avatar':$}");
+
+                //add new message
+                Client.SetDefaultCollection("Articles")
+                      .GetDoc(result.DocID)
+                      .Update(DQL("{'Messages':[Add,{'OnDate':@OnDate,'Who':@Who,'Avatar':@Avatar,'Message':@Message}]}",
+                                  DateTime.Now,
+                                  UserContext.User.Name,
+                                  avatar,
+                                  message));
+
+                //show article form
+                Client.SetDefaultCollection("Articles")
+                      .GetDoc(result.DocID)
+                      .OpenForm(SendMessage);
+            }
+        }
+
         public void Articles()
         {
             Client.SetDefaultCollection("Articles")
                   .GetAll()
                   .WantModifyExistingDocuments()
-                  .OpenForm();
+                  .OpenForm(SendMessage);
         }
 
         public void NewArticle()
@@ -38,7 +69,7 @@ namespace FractalPlatform.Examples.Applications.Forum
 
         public override bool OnOpenForm(Context context, Collection collection, KeyMap key, uint docID)
         {
-            if(collection.Name == "Articles" &&
+            if (collection.Name == "Articles" &&
                docID != Constants.ANY_DOC_ID)
             {
                 var countViews = Client.SetDefaultCollection("Articles")
