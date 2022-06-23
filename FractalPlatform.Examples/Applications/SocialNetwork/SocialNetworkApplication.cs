@@ -45,7 +45,8 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
         public void Posts()
         {
             Client.SetDefaultCollection("Users")
-                  .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
+                  .GetWhere(DQL("{'Friends':[Any,{'Name':@Name,'Approved':true}]}", UserContext.User.Name)) //posts my friends
+                  .OrWhere(DQL("{'Name':@Name}", UserContext.User.Name)) //and my posts
                   .OpenForm("{'Posts':[{'Who':$,'OnDate':$,'Message':$,'Picture':$}]}");
         }
 
@@ -62,9 +63,18 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
 
         public void RequestFriend(uint docID)
         {
-            Client.SetDefaultCollection("Users")
-                  .GetDoc(docID)
-                  .Update(DQL("{'Friends':[Add,{'Name':@Name,'Approved':false}]}", UserContext.User.Name));
+            if (!Client.SetDefaultCollection("Users")
+                      .GetDoc(docID)
+                      .Any(DQL("{'Friends':[{'Name':@Name}]}", UserContext.User.Name)))
+            {
+                Client.SetDefaultCollection("Users")
+                      .GetDoc(docID)
+                      .Update(DQL("{'Friends':[Add,{'Name':@Name,'Approved':false}]}", UserContext.User.Name));
+            }
+            else
+            {
+                MessageBox("You have sent friend request.");
+            }
         }
 
         public override bool OnEventDimension(Context context,
@@ -111,11 +121,39 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
             return true;
         }
 
-        private void Friend(KeyMap key)
+        private void Friend(KeyMap key, bool approve)
         {
+            if(Client.SetDefaultCollection("Users")
+                     .GetWhere(key)
+                     .Any(DQL("{'Friends':[{'Approved':@Approve}]}", approve)))
+            {
+                MessageBox("You have already friend/unfriend users.");
+
+                return;
+            }
+
+            //my friend
             Client.SetDefaultCollection("Users")
                   .GetWhere(key)
-                  .Update("{'Friends':[{'Approved':true}]}");
+                  .Update(DQL("{'Friends':[{'Approved':@Approve}]}", approve));
+
+            //and his friend
+            var friend = Client.SetDefaultCollection("Users")
+                               .GetWhere(key)
+                               .Value("{'Friends':[{'Name':$}]}");
+
+            if (approve)
+            {
+                Client.SetDefaultCollection("Users")
+                      .GetWhere(DQL("{'Name':@Name}", friend))
+                      .Update(DQL("{'Friends':[Add,{'Name':@Name,'Approved':true}]}", UserContext.User.Name));
+            }
+            else
+            {
+                Client.SetDefaultCollection("Users")
+                      .GetWhere(DQL("{'Name':@Friend,'Friends':[{'Name':@User}]}", friend, UserContext.User.Name))
+                      .Delete(DQL("{'Friends':[{'Name':$,'Approved':$}]}", UserContext.User.Name, approve));
+            }
         }
 
         public override bool OnMenuDimension(Context context, Collection collection, KeyMap key, uint docID, string action)
@@ -123,7 +161,10 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
             switch (action)
             {
                 case "Friend":
-                    Friend(key);
+                    Friend(key, true);
+                    break;
+                case "Unfriend":
+                    Friend(key, false);
                     break;
                 default:
                     throw new NotImplementedException();

@@ -8,23 +8,10 @@
   "Avatar": {
     "ControlType": "Picture"
   },
+  "Friends": {
+    "Style": "Add:false;Del:false"
+  },
   "Posts": [
-    {
-      "OnDate": {
-        "ControlType": "Calendar"
-      },
-      "Message": {
-        "ControlType": "RichTextBox"
-      },
-      "Photo": {
-        "ControlType": "Picture"
-      },
-      "Likes": {
-        "ControlType": "Likes"
-      }
-    }
-  ],
-  "MyPosts": [
     {
       "OnDate": {
         "ControlType": "Calendar"

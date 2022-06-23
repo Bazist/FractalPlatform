@@ -9,15 +9,6 @@
       "Approved": false
     }
   ],
-  "MyPosts": [
-    {
-      "Who": "Bob",
-      "OnDate": "2022-01-01",
-      "Message": "Hello World !",
-      "Photo": "",
-      "Likes": ["Test"]
-    }
-  ],
   "Posts": [
     {
       "Who": "Bob",
