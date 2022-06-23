@@ -5,5 +5,8 @@
   },
   "Avatar": {
     "ControlType": "UploadFile"
+  },
+  "RequestFriend": {
+    "Visible": false
   }
 }

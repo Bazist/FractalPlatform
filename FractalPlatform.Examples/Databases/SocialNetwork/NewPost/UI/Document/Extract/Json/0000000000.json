@@ -1,9 +1,18 @@
 {
+  "Who": {
+    "Enabled": false
+  },
   "OnDate": {
     "ControlType": "Calendar",
     "Enabled": false
   },
+  "Message": {
+    "ControlType": "RichTextBox"
+  },
   "Photo": {
     "ControlType": "UploadFile"
+  },
+  "Likes": {
+    "Visible": false
   }
 }

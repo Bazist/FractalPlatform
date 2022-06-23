@@ -5,9 +5,41 @@
   "Avatar": {
     "ControlType": "Picture"
   },
-  "Posts": {
-    "Visible": false
-  },
+  "Posts": [
+    {
+      "Enabled": false,
+      "OnDate": {
+        "ControlType": "Calendar"
+      },
+      "Message": {
+        "ControlType": "RichTextBox"
+      },
+      "Photo": {
+        "ControlType": "Picture"
+      },
+      "Likes": {
+        "ControlType": "Likes"
+      }
+    }
+  ],
+  "MyPosts": [
+    {
+      "Enabled": false,
+      "OnDate": {
+        "ControlType": "Calendar"
+      },
+      "Message": {
+        "ControlType": "RichTextBox",
+        "Enabled": true
+      },
+      "Photo": {
+        "ControlType": "Picture"
+      },
+      "Likes": {
+        "ControlType": "Likes"
+      }
+    }
+  ],
   "RequestFriend": {
     "ControlType": "Button"
   }
