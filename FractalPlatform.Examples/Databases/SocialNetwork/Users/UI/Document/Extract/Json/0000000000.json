@@ -1,4 +1,5 @@
 {
+  "Enabled": false,
   "Password": {
     "Visible": false
   },
@@ -41,6 +42,7 @@
     }
   ],
   "RequestFriend": {
-    "ControlType": "Button"
+    "ControlType": "Button",
+    "Enabled": true
   }
 }

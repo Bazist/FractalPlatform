@@ -21,90 +21,50 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                   .OpenForm(Constants.FIRST_DOC_ID);
         }
 
-        private void SendMessage(FormResult result)
+        public void MyUser()
         {
-            if (result.Result)
-            {
-                //get message
-                var message = result.Collection
-                                    .DocumentStorage
-                                    .GetDoc(UserContext, result.DocID)
-                                    .Value("{'Message':$}");
-
-                //get user avatar
-                var avatar = Client.SetDefaultCollection("Users")
-                                   .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
-                                   .Value("{'Avatar':$}");
-
-                //add new message
-                Client.SetDefaultCollection("Topics")
-                      .GetDoc(result.DocID)
-                      .Update(DQL(@"{'Messages':[Add,{'OnDate':@OnDate,
-                                                      'Who':@Who,
-                                                      'Avatar':@Avatar,
-                                                      'Message':@Message}],
-                                     'Message':'Put your message here'}",
-                                  DateTime.Now,
-                                  UserContext.User.Name,
-                                  avatar,
-                                  message));
-
-                //show topic form
-                Client.SetDefaultCollection("Topics")
-                      .GetDoc(result.DocID)
-                      .OpenForm(SendMessage);
-            }
-        }
-
-        public void Topics()
-        {
-            Client.SetDefaultCollection("Topics")
-                  .GetAll()
-                  .WantModifyExistingDocuments()
-                  .OpenForm(SendMessage);
-        }
-
-        public void NewTopic()
-        {
-            Client.SetDefaultCollection("NewTopic")
-                  .WantCreateNewDocumentFor("Topics")
+            Client.SetDefaultCollection("Users")
+                  .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
                   .OpenForm();
         }
 
-        public override bool OnOpenForm(Context context, Collection collection, KeyMap key, uint docID)
+        public void Friends()
         {
-            if (collection.Name == "Topics" &&
-               docID != Constants.ANY_DOC_ID)
-            {
-                var countViews = Client.SetDefaultCollection("Topics")
-                                       .GetDoc(docID)
-                                       .Value("{'CountViews':$}");
-
-                Client.SetDefaultCollection("Topics")
-                      .GetDoc(docID)
-                      .Update(new { CountViews = int.Parse(countViews) + 1 });
-
-                collection.ReloadData();
-            }
-
-            return true;
+            Client.SetDefaultCollection("Users")
+                  .GetWhere(DQL("{'Name':@Name,'Friends':[{'Approved':true}]}", UserContext.User.Name))
+                  .OpenForm("{'Friends':[{'Name':$}]}");
         }
 
-        public override string OnComputedDimension(Context context, Storage storage, KeyMap key, AttrValue value, uint docID, string variable)
+        public void Users()
         {
-            switch (variable)
-            {
-                case "CountMessages":
-                    {
-                        var count = Client.SetDefaultCollection("Topics")
-                                          .GetDoc(docID)
-                                          .Count("{'Messages':[{'Who':$}]}");
+            Client.SetDefaultCollection("Users")
+                  .GetAll()
+                  .OpenForm();
+        }
 
-                        return count.ToString();
-                    }
-                default:
-                    throw new NotImplementedException();
-            }
+        public void Posts()
+        {
+            Client.SetDefaultCollection("Users")
+                  .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
+                  .OpenForm("{'Posts':[{'Who':$,'OnDate':$,'Message':$,'Picture':$}]}");
+        }
+
+        public void NewPost()
+        {
+            var docID = Client.SetDefaultCollection("Users")
+                              .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
+                              .GetFirstID();
+
+            Client.SetDefaultCollection("NewPost")
+                 .WantCreateNewDocumentForArray("Users", docID, "{'MyPosts':[$]}")
+                 .OpenForm();
+        }
+
+        public void RequestFriend(uint docID)
+        {
+            Client.SetDefaultCollection("Users")
+                  .GetDoc(docID)
+                  .Update(DQL("{'Friends':[Add,{'Name':@Name,'Approved':false}]}", UserContext.User.Name));
         }
 
         public override bool OnEventDimension(Context context,
@@ -126,11 +86,47 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                 case "Register":
                     Register();
                     break;
-                case "Topics":
-                    Topics();
+                case "MyUser":
+                    MyUser();
                     break;
-                case "NewTopic":
-                    NewTopic();
+                case "Friends":
+                    Friends();
+                    break;
+                case "Users":
+                    Users();
+                    break;
+                case "Posts":
+                    Posts();
+                    break;
+                case "NewPost":
+                    NewPost();
+                    break;
+                case "RequestFriend":
+                    RequestFriend(docID);
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+            return true;
+        }
+
+        private void Friend(KeyMap key, bool approved)
+        {
+            Client.SetDefaultCollection("Users")
+                  .GetWhere(key)
+                  .Update(DQL("{'Friends':[{'Approved':@Approved}]}", approved));
+        }
+
+        public override bool OnMenuDimension(Context context, Collection collection, KeyMap key, uint docID, string action)
+        {
+            switch (action)
+            {
+                case "Friend":
+                    Friend(key, true);
+                    break;
+                case "Unfriend":
+                    Friend(key, false);
                     break;
                 default:
                     throw new NotImplementedException();
