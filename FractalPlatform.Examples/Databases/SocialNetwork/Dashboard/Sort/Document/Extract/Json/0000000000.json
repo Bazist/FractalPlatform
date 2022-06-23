@@ -1,0 +1,11 @@
+{
+  "UserName": { "Index": 1 },
+  "LoginButton": { "Index": 2 },
+  "LogoutButton": { "Index": 3 },
+  "Register": { "Index": 4 },
+  "MyUser": { "Index": 5 },
+  "Friends": { "Index": 6 },
+  "Users": { "Index": 7 },
+  "Posts": { "Index": 8 },
+  "NewPost": { "Index": 9 }
+}
