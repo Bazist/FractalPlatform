@@ -1,14 +1,11 @@
 {
   "Enabled": false,
+  "Style": "Add:false",
   "Password": {
     "Visible": false
   },
   "Avatar": {
     "ControlType": "Picture"
-  },
-  "Friends": {
-    "Style": "Add:false",
-    "Enabled": true
   },
   "Posts": [
     {
@@ -28,24 +25,28 @@
   ],
   "MyPosts": [
     {
+      "Who": {
+        "Enabled": false
+      },
       "OnDate": {
-        "ControlType": "Calendar"
+        "ControlType": "Calendar",
+        "Enabled": false
       },
       "Message": {
-        "ControlType": "RichTextBox",
-        "Enabled": true
+        "ControlType": "RichTextBox"
       },
       "Photo": {
-        "ControlType": "Picture"
+        "ControlType": "Picture",
+        "Enabled": false
       },
       "Likes": {
-        "ControlType": "Likes"
+        "ControlType": "Likes",
+        "Enabled": false
       }
     }
   ],
   "RequestFriend": {
     "ControlType": "Button",
-    "Enabled": true,
-    "Visible": true
+    "Enabled": true
   }
 }
