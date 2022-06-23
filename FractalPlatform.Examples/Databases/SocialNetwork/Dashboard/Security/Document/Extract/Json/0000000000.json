@@ -1,4 +1,18 @@
 {
+  "LoginButton": {
+    "Allow": {
+      "Read": [
+        "Guest"
+      ]
+    }
+  },
+  "LogoutButton": {
+    "Disallow": {
+      "Read": [
+        "Guest"
+      ]
+    }
+  },
   "Register": {
     "Allow": {
       "Read": [

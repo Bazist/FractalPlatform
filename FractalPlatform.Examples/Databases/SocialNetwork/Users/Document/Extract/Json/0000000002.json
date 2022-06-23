@@ -6,7 +6,7 @@
   "Friends": [
     {
       "Name": "Bob",
-      "Approved": true
+      "Approved": false
     }
   ],
   "MyPosts": [

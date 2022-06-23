@@ -1,6 +1,6 @@
 {
   "Who": {
-    "Who": "@UserName"
+    "Formula": "@UserName"
   },
   "OnDate": {
     "Formula": "@Now"

@@ -111,11 +111,13 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
             return true;
         }
 
-        private void Friend(KeyMap key, bool approved)
+        private void Friend(KeyMap key)
         {
+            Log("Key = {0}", key.GetPathNames());
+
             Client.SetDefaultCollection("Users")
                   .GetWhere(key)
-                  .Update(DQL("{'Friends':[{'Approved':@Approved}]}", approved));
+                  .Update("{'Friends':[{'Approved':true}]}");
         }
 
         public override bool OnMenuDimension(Context context, Collection collection, KeyMap key, uint docID, string action)
@@ -123,10 +125,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
             switch (action)
             {
                 case "Friend":
-                    Friend(key, true);
-                    break;
-                case "Unfriend":
-                    Friend(key, false);
+                    Friend(key);
                     break;
                 default:
                     throw new NotImplementedException();

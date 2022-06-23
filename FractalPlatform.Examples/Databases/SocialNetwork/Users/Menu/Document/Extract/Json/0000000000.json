@@ -4,10 +4,6 @@
       {
         "Text": "Friend",
         "Action": "Friend"
-      },
-      {
-        "Text": "Unfriend",
-        "Action": "Unfriend"
       }
     ]
    }

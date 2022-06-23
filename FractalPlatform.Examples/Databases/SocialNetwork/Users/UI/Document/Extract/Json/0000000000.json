@@ -6,9 +6,11 @@
   "Avatar": {
     "ControlType": "Picture"
   },
+  "Friends": {
+    "Enabled": true
+  },
   "Posts": [
     {
-      "Enabled": false,
       "OnDate": {
         "ControlType": "Calendar"
       },
@@ -25,7 +27,6 @@
   ],
   "MyPosts": [
     {
-      "Enabled": false,
       "OnDate": {
         "ControlType": "Calendar"
       },
