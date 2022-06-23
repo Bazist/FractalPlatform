@@ -7,6 +7,7 @@
     "ControlType": "Picture"
   },
   "Friends": {
+    "Style": "Add:false",
     "Enabled": true
   },
   "Posts": [
@@ -44,6 +45,7 @@
   ],
   "RequestFriend": {
     "ControlType": "Button",
-    "Enabled": true
+    "Enabled": true,
+    "Visible": true
   }
 }

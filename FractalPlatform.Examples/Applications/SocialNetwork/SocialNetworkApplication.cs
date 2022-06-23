@@ -113,7 +113,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
 
         private void Friend(KeyMap key)
         {
-            Log("Key = {0}", key.GetPathNames());
+            Log("Key = {0}", key.ToDQL2());
 
             Client.SetDefaultCollection("Users")
                   .GetWhere(key)
