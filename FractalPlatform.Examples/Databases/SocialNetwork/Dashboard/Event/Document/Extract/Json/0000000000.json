@@ -1,0 +1,17 @@
+{
+  "LoginButton": {
+    "OnClick": "Login"
+  },
+  "LogoutButton": {
+    "OnClick": "Logout"
+  },
+  "Register": {
+    "OnClick": "Register"
+  },
+  "Topics": {
+    "OnClick": "Topics"
+  },
+  "NewTopic": {
+    "OnClick": "NewTopic"
+  }
+}
