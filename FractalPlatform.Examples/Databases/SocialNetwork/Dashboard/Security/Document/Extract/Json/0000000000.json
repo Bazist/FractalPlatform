@@ -1,13 +1,41 @@
 {
-  "NewTopic": {
+  "Register": {
+    "Allow": {
+      "Read": [
+        "Guest"
+      ]
+    }
+  },
+  "MyUser": {
     "Disallow": {
       "Read": [
         "Guest"
       ]
     }
   },
-  "Register": {
-    "Allow": {
+  "Friends": {
+    "Disallow": {
+      "Read": [
+        "Guest"
+      ]
+    }
+  },
+  "Users": {
+    "Disallow": {
+      "Read": [
+        "Guest"
+      ]
+    }
+  },
+  "Posts": {
+    "Disallow": {
+      "Read": [
+        "Guest"
+      ]
+    }
+  },
+  "NewPost": {
+    "Disallow": {
       "Read": [
         "Guest"
       ]

@@ -1,0 +1,9 @@
+{
+  "OnDate": {
+    "ControlType": "Calendar",
+    "Enabled": false
+  },
+  "Photo": {
+    "ControlType": "UploadFile"
+  }
+}

@@ -3,6 +3,9 @@
   "LoginButton": "Log In",
   "LogoutButton": "Log Out",
   "Register": "Register",
-  "Topics": "Topics",
-  "NewTopic": "New Topic"
+  "MyUser": "MyUser",
+  "Friends": "Friends",
+  "Users": "Users",
+  "Posts": "Posts",
+  "NewPost": "New Post"
 }

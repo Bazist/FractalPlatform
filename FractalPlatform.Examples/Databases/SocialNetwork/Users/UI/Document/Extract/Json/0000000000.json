@@ -4,5 +4,11 @@
   },
   "Avatar": {
     "ControlType": "Picture"
+  },
+  "Posts": {
+    "Visible": false
+  },
+  "RequestFriend": {
+    "ControlType": "Button"
   }
 }

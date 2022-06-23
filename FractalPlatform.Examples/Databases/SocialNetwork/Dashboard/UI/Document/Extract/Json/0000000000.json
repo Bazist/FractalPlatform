@@ -1,19 +1,5 @@
 {
-  "LoginButton": {
-    "ControlType": "Button"
-  },
-  "LogoutButton": {
-    "ControlType": "Button"
-  },
-  "Register": {
-    "ControlType": "Button"
-  },
-  "Topics": {
-    "ControlType": "Button"
-  },
-  "NewTopic": {
-    "ControlType": "Button"
-  },
+  "ControlType": "Button",
   "UserName": {
     "ControlType": "Label"
   }

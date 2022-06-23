@@ -1,17 +1,17 @@
 {
-  "Name": "Bob",
+  "Name": "Tim",
   "Password": "2FC1C0BEB992CD7096975CFEBF9D5C3B",
   "Age": 21,
   "Avatar": "",
   "Friends": [
     {
-      "Name": "Tim",
+      "Name": "Bob",
       "Approved": true
     }
   ],
   "MyPosts": [
     {
-      "Who": "Bob",
+      "Who": "Tim",
       "OnDate": "2022-01-01",
       "Message": "Hello World !",
       "Photo": "",

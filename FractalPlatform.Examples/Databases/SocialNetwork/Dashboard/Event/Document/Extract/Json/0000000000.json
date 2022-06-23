@@ -8,10 +8,19 @@
   "Register": {
     "OnClick": "Register"
   },
-  "Topics": {
-    "OnClick": "Topics"
+  "MyUser": {
+    "OnClick": "MyUser"
   },
-  "NewTopic": {
-    "OnClick": "NewTopic"
+  "Friends": {
+    "OnClick": "Friends"
+  },
+  "Users": {
+    "OnClick": "Users"
+  },
+  "Posts": {
+    "OnClick": "Posts"
+  },
+  "NewPost": {
+    "OnClick": "NewPost"
   }
 }
