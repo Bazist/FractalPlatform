@@ -37,7 +37,7 @@ namespace FractalPlatform.Examples.Applications.Forum
                                    .Value("{'Avatar':$}");
 
                 //add new message
-                Client.SetDefaultCollection("Articles")
+                Client.SetDefaultCollection("Topics")
                       .GetDoc(result.DocID)
                       .Update(DQL(@"{'Messages':[Add,{'OnDate':@OnDate,
                                                       'Who':@Who,
@@ -49,38 +49,38 @@ namespace FractalPlatform.Examples.Applications.Forum
                                   avatar,
                                   message));
 
-                //show article form
-                Client.SetDefaultCollection("Articles")
+                //show topic form
+                Client.SetDefaultCollection("Topics")
                       .GetDoc(result.DocID)
                       .OpenForm(SendMessage);
             }
         }
 
-        public void Articles()
+        public void Topics()
         {
-            Client.SetDefaultCollection("Articles")
+            Client.SetDefaultCollection("Topics")
                   .GetAll()
                   .WantModifyExistingDocuments()
                   .OpenForm(SendMessage);
         }
 
-        public void NewArticle()
+        public void NewTopic()
         {
-            Client.SetDefaultCollection("NewArticle")
-                  .WantCreateNewDocumentFor("Articles")
+            Client.SetDefaultCollection("NewTopic")
+                  .WantCreateNewDocumentFor("Topics")
                   .OpenForm();
         }
 
         public override bool OnOpenForm(Context context, Collection collection, KeyMap key, uint docID)
         {
-            if (collection.Name == "Articles" &&
+            if (collection.Name == "Topics" &&
                docID != Constants.ANY_DOC_ID)
             {
-                var countViews = Client.SetDefaultCollection("Articles")
+                var countViews = Client.SetDefaultCollection("Topics")
                                        .GetDoc(docID)
                                        .Value("{'CountViews':$}");
 
-                Client.SetDefaultCollection("Articles")
+                Client.SetDefaultCollection("Topics")
                       .GetDoc(docID)
                       .Update(new { CountViews = int.Parse(countViews) + 1 });
 
@@ -96,7 +96,7 @@ namespace FractalPlatform.Examples.Applications.Forum
             {
                 case "CountMessages":
                     {
-                        var count = Client.SetDefaultCollection("Articles")
+                        var count = Client.SetDefaultCollection("Topics")
                                           .GetDoc(docID)
                                           .Count("{'Messages':[{'Who':$}]}");
 
@@ -126,11 +126,11 @@ namespace FractalPlatform.Examples.Applications.Forum
                 case "Register":
                     Register();
                     break;
-                case "Articles":
-                    Articles();
+                case "Topics":
+                    Topics();
                     break;
-                case "NewArticle":
-                    NewArticle();
+                case "NewTopic":
+                    NewTopic();
                     break;
                 default:
                     throw new NotImplementedException();

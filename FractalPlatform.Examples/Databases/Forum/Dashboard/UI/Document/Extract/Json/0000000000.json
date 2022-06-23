@@ -8,10 +8,10 @@
   "Register": {
     "ControlType": "Button"
   },
-  "Articles": {
+  "Topics": {
     "ControlType": "Button"
   },
-  "NewArticle": {
+  "NewTopic": {
     "ControlType": "Button"
   },
   "UserName": {

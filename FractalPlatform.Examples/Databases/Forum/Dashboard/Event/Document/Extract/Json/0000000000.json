@@ -8,10 +8,10 @@
   "Register": {
     "OnClick": "Register"
   },
-  "Articles": {
-    "OnClick": "Articles"
+  "Topics": {
+    "OnClick": "Topics"
   },
-  "NewArticle": {
-    "OnClick": "NewArticle"
+  "NewTopic": {
+    "OnClick": "NewTopic"
   }
 }
