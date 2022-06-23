@@ -1,5 +1,6 @@
 {
   "Enabled": false,
+  "ReadOnly": true,
   "Style": "Add:false",
   "Password": {
     "Visible": false
@@ -25,28 +26,24 @@
   ],
   "MyPosts": [
     {
-      "Who": {
-        "Enabled": false
-      },
       "OnDate": {
-        "ControlType": "Calendar",
-        "Enabled": false
+        "ControlType": "Calendar"
       },
       "Message": {
-        "ControlType": "RichTextBox"
+        "ControlType": "RichTextBox",
+        "ReadOnly": false
       },
       "Photo": {
-        "ControlType": "Picture",
-        "Enabled": false
+        "ControlType": "Picture"
       },
       "Likes": {
-        "ControlType": "Likes",
-        "Enabled": false
+        "ControlType": "Likes"
       }
     }
   ],
   "RequestFriend": {
     "ControlType": "Button",
-    "Enabled": true
+    "Enabled": true,
+    "ReadOnly": false
   }
 }
