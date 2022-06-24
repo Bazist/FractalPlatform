@@ -28,6 +28,23 @@
       }
     }
   ],
+  "ViewPosts": [
+    {
+      "Visible": false,
+      "OnDate": {
+        "ControlType": "Calendar"
+      },
+      "Message": {
+        "ControlType": "RichTextBox"
+      },
+      "Photo": {
+        "ControlType": "Picture"
+      },
+      "Likes": {
+        "ControlType": "Likes"
+      }
+    }
+  ],
   "RequestFriend": {
     "ControlType": "Button",
     "Enabled": true,

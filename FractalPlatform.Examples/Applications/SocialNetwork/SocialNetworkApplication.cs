@@ -1,5 +1,6 @@
 ﻿using BigDoc.Client;
 using BigDoc.Client.UI;
+using BigDoc.Common.Enums;
 using BigDoc.Database.Engine;
 using BigDoc.Database.Storages;
 using System;
@@ -42,11 +43,15 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                   .OpenForm();
         }
 
-        public void Posts()
+        public void ViewPosts()
         {
             Client.SetDefaultCollection("Users")
                   .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
-                  .OpenForm("{'ViewPosts':[{'Who':$,'OnDate':$,'Message':$,'Picture':$}]}");
+                  .ToCollection("{'ViewPosts':[$]}", true)
+                  .ChangeDimension(UserContext,
+                                   DimensionType.UI,
+                                   "{'Style':'Save:false','ViewPosts':[{'Visible':true}]}")
+                  .OpenForm(UserContext);
         }
 
         public void NewPost()
@@ -56,7 +61,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                               .GetFirstID();
 
             Client.SetDefaultCollection("NewPost")
-                 .WantCreateNewDocumentForArray("Users", docID, "{'MyPosts':[$]}")
+                 .WantCreateNewDocumentForArray("Users", docID, "{'Posts':[$]}")
                  .OpenForm();
         }
 
@@ -104,8 +109,8 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                 case "Users":
                     Users();
                     break;
-                case "Posts":
-                    Posts();
+                case "ViewPosts":
+                    ViewPosts();
                     break;
                 case "NewPost":
                     NewPost();

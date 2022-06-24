@@ -6,6 +6,6 @@
   "MyUser": { "Index": 5 },
   "Friends": { "Index": 6 },
   "Users": { "Index": 7 },
-  "Posts": { "Index": 8 },
+  "ViewPosts": { "Index": 8 },
   "NewPost": { "Index": 9 }
 }

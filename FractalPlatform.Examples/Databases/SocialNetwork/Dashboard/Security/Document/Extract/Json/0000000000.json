@@ -41,7 +41,7 @@
       ]
     }
   },
-  "Posts": {
+  "ViewPosts": {
     "Disallow": {
       "Read": [
         "Guest"

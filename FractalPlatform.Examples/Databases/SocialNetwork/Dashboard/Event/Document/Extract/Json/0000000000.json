@@ -17,8 +17,8 @@
   "Users": {
     "OnClick": "Users"
   },
-  "Posts": {
-    "OnClick": "Posts"
+  "ViewPosts": {
+    "OnClick": "ViewPosts"
   },
   "NewPost": {
     "OnClick": "NewPost"
