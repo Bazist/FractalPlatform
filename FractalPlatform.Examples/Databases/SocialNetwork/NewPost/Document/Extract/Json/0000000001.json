@@ -1,6 +1,7 @@
 {
+  "Who": "",
   "OnDate": "",
   "Message": "",
   "Photo": "",
-  "Likes": ["Test"]
+  "Likes": [ "Test" ]
 }

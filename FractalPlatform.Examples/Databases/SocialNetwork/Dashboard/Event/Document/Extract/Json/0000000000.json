@@ -11,9 +11,6 @@
   "MyUser": {
     "OnClick": "MyUser"
   },
-  "Friends": {
-    "OnClick": "Friends"
-  },
   "Users": {
     "OnClick": "Users"
   },

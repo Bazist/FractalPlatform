@@ -27,13 +27,6 @@
       ]
     }
   },
-  "Friends": {
-    "Disallow": {
-      "Read": [
-        "Guest"
-      ]
-    }
-  },
   "Users": {
     "Disallow": {
       "Read": [

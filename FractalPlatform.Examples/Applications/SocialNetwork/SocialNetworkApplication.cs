@@ -131,7 +131,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                      .GetWhere(key)
                      .Any(DQL("{'Friends':[{'Approved':@Approve}]}", approve)))
             {
-                MessageBox("You have already friend/unfriend users.");
+                MessageBox("You have already friend/unfriend user.");
 
                 return;
             }
