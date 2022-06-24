@@ -45,9 +45,8 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
         public void Posts()
         {
             Client.SetDefaultCollection("Users")
-                  .GetWhere(DQL("{'Friends':[Any,{'Name':@Name,'Approved':true}]}", UserContext.User.Name)) //posts my friends
-                  .OrWhere(DQL("{'Name':@Name}", UserContext.User.Name)) //and my posts
-                  .OpenForm("{'Posts':[{'Who':$,'OnDate':$,'Message':$,'Picture':$}]}");
+                  .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
+                  .OpenForm("{'ViewPosts':[{'Who':$,'OnDate':$,'Message':$,'Picture':$}]}");
         }
 
         public void NewPost()
