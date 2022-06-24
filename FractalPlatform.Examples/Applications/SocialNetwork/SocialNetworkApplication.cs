@@ -62,15 +62,18 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
         {
             if (!Client.SetDefaultCollection("Users")
                       .GetDoc(docID)
-                      .Any(DQL("{'Friends':[{'Name':@Name}]}", UserContext.User.Name)))
+                      .AndWhere(DQL("{'Friends':[{'Name':@Name}]}", UserContext.User.Name))
+                      .Any())
             {
                 Client.SetDefaultCollection("Users")
                       .GetDoc(docID)
                       .Update(DQL("{'Friends':[Add,{'Name':@Name,'Approved':false}]}", UserContext.User.Name));
+
+                MessageBox("You have sent friend request.");
             }
             else
             {
-                MessageBox("You have sent friend request.");
+                MessageBox("Your have already sent friend request.");
             }
         }
 
