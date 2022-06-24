@@ -2,6 +2,9 @@
   "Enabled": false,
   "ReadOnly": true,
   "Style": "Add:false",
+  "Age": {
+    "ReadOnly": false
+  },
   "Password": {
     "Visible": false
   },

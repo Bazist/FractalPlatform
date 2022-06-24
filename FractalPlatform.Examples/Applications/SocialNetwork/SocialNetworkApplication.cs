@@ -29,13 +29,6 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                   .OpenForm();
         }
 
-        public void Friends()
-        {
-            Client.SetDefaultCollection("Users")
-                  .GetWhere(DQL("{'Name':@Name,'Friends':[{'Approved':true}]}", UserContext.User.Name))
-                  .OpenForm("{'Friends':[{'Name':$}]}");
-        }
-
         public void Users()
         {
             Client.SetDefaultCollection("Users")
@@ -102,9 +95,6 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                     break;
                 case "MyUser":
                     MyUser();
-                    break;
-                case "Friends":
-                    Friends();
                     break;
                 case "Users":
                     Users();

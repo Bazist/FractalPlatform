@@ -3,12 +3,6 @@
   "Password": "2FC1C0BEB992CD7096975CFEBF9D5C3B",
   "Age": 21,
   "Avatar": "",
-  "Friends": [
-    {
-      "Name": "Bob",
-      "Approved": true
-    }
-  ],
   "Posts": [
     {
       "Who": "Tim",
