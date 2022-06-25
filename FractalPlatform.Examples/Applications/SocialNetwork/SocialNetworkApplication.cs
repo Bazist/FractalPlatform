@@ -33,7 +33,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                 Client.SetDefaultCollection("Users")
                       .GetWhere(DQL("{'Posts':[{'UID':@UID}]}", uid))
                       .WantModifyExistingDocuments()
-                      .OpenForm("{'Posts':[{'OnDate':$,'Who':$,'Message':$,'NewComment':$,'Likes':[R,$]}]}");
+                      .OpenForm("{'Posts':[$]}", null, null, true);
 
                 return false;
             }
