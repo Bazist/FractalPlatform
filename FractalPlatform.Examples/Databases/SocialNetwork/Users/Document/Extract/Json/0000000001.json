@@ -17,7 +17,7 @@
     {
       "Who": "Bob",
       "OnDate": "2022-01-01",
-      "Message": "Hello Bob World !",
+      "Message": "Hello from Bob !",
       "Photo": "",
       "Likes": [ "Test" ]
     }

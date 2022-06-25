@@ -9,5 +9,14 @@
       "Name": "Bob",
       "Approved": true
     }
+  ],
+  "Posts": [
+    {
+      "Who": "Rebeca",
+      "OnDate": "2022-01-01",
+      "Message": "Hello from Rebeca !",
+      "Photo": "",
+      "Likes": [ "Test" ]
+    }
   ]
 }

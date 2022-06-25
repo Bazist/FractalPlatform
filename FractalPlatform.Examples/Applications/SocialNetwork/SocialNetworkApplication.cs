@@ -88,7 +88,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
             switch (action)
             {
                 case "Login":
-                    Login("Bob", "Bob");
+                    Login("Rebeca", "Bob");
                     break;
                 case "Logout":
                     Logout();
