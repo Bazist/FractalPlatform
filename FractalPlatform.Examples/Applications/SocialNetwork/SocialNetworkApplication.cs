@@ -26,13 +26,9 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
         {
             if (key.GetFirstPathName() == "ViewPosts")
             {
-                Log("Key={0}", key.ToString());
-
                 var uid = collection.DocumentStorage
                                     .GetWhere(context, key)
                                     .Value("{'ViewPosts':[{'UID':$}]}");
-
-                Log("Uid={0}", uid);
 
                 Client.SetDefaultCollection("Users")
                       .GetWhere(DQL("{'Posts':[{'UID':@UID}]}", uid))
