@@ -17,7 +17,8 @@
       "OnDate": "21.06.2022 11:24:12",
       "Message": "Hello from Rebeca !",
       "Photo": "",
-      "Likes": [ "Test" ]
+      "Likes": [ "Test" ],
+      "NewComment": "New Comment"
     }
   ]
 }

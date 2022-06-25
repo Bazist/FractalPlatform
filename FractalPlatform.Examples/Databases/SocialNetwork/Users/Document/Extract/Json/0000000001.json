@@ -20,7 +20,8 @@
       "OnDate": "23.06.2022 11:24:12",
       "Message": "Hello from Bob !",
       "Photo": "",
-      "Likes": [ "Test" ]
+      "Likes": [ "Test" ],
+      "NewComment": "New Comment"
     }
   ],
   "RequestFriend": "Request Friend"

@@ -4,7 +4,18 @@
   "Age": { "Index": 3 },
   "Photo": { "Index": 4 },
   "Friends": { "Index": 5 },
-  "Posts": { "Index": 6 },
+  "Posts": [
+    {
+      "UID": { "Index": 6 },
+      "Who": { "Index": 7 },
+      "OnDate": { "Index": 8 },
+      "Message": { "Index": 9 },
+      "Photo": { "Index": 10 },
+      "Likes": { "Index": 11 },
+      "Comments": { "Index": 12 },
+      "NewComment": { "Index": 13 }
+    }
+  ],
   "ViewPosts": [
     {
       "OnDate": {
@@ -15,5 +26,5 @@
       }
     }
   ],
-  "RequestFriend": { "Index": 7 }
+  "RequestFriend": { "Index": 14 }
 }
