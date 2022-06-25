@@ -1,5 +1,12 @@
 {
   "RequestFriend": {
     "OnClick": "RequestFriend"
-  }
+  },
+  "Posts": [
+    {
+      "NewComment": {
+        "OnClick": "NewComment"
+      }
+    }
+  ]
 }

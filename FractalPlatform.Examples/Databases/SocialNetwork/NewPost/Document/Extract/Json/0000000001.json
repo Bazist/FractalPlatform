@@ -4,5 +4,6 @@
   "OnDate": "",
   "Message": "",
   "Photo": "",
-  "Likes": [ "Test" ]
+  "Likes": [ "Test" ],
+  "NewComment": "New Comment"
 }

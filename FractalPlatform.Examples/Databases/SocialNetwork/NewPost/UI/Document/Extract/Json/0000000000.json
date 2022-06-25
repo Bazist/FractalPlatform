@@ -1,4 +1,7 @@
 {
+  "UID": {
+    "Visible": false
+  },
   "Who": {
     "Enabled": false
   },
@@ -13,6 +16,9 @@
     "ControlType": "UploadFile"
   },
   "Likes": {
+    "Visible": false
+  },
+  "NewComment": {
     "Visible": false
   }
 }

@@ -30,6 +30,14 @@
         "ControlType": "Likes",
         "Enabled": true,
         "ReadOnly": false
+      },
+      "Comments": {
+        "ControlType": "Comments"
+      },
+      "NewComment": {
+        "ControlType": "Button",
+        "Enabled": true,
+        "ReadOnly": false
       }
     }
   ],
@@ -47,6 +55,14 @@
       },
       "Likes": {
         "ControlType": "Likes"
+      },
+      "Comments": {
+        "ControlType": "Comments"
+      },
+      "NewComment": {
+        "ControlType": "Button",
+        "Enabled": true,
+        "ReadOnly": false
       }
     }
   ],

@@ -33,7 +33,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                 Client.SetDefaultCollection("Users")
                       .GetWhere(DQL("{'Posts':[{'UID':@UID}]}", uid))
                       .WantModifyExistingDocuments()
-                      .OpenForm("{'Posts':[{'OnDate':$,'Who':$,'Message':$,'Likes':[R,$]}]}");
+                      .OpenForm("{'Posts':[{'OnDate':$,'Who':$,'Message':$,'NewComment':$,'Likes':[R,$]}]}");
 
                 return false;
             }
@@ -96,6 +96,20 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
             }
         }
 
+        public void NewComment(KeyMap key, uint docID)
+        {
+            var keyMap = key.Clone();
+            keyMap.RemoveAttrs2(1);
+            keyMap.AddAttrs2("Comments");
+            keyMap.AddAttrs2(KeyMap.ArrayPath);
+
+            Log(keyMap);
+
+            Client.SetDefaultCollection("NewComment")
+                  .WantCreateNewDocumentForArray("Users", docID, keyMap)
+                  .OpenForm();
+        }
+
         public override bool OnEventDimension(Context context,
                                               Collection collection,
                                               KeyMap key,
@@ -129,6 +143,9 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                     break;
                 case "RequestFriend":
                     RequestFriend(docID);
+                    break;
+                case "NewComment":
+                    NewComment(key, docID);
                     break;
                 default:
                     throw new NotImplementedException();
