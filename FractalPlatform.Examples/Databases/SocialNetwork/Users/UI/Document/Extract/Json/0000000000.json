@@ -27,7 +27,9 @@
         "ControlType": "Picture"
       },
       "Likes": {
-        "ControlType": "Likes"
+        "ControlType": "Likes",
+        "Enabled": true,
+        "ReadOnly": false
       }
     }
   ],
@@ -44,9 +46,7 @@
         "ControlType": "Picture"
       },
       "Likes": {
-        "ControlType": "Likes",
-        "Enabled": true,
-        "ReadOnly": false
+        "ControlType": "Likes"
       }
     }
   ],

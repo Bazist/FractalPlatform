@@ -1,4 +1,7 @@
 {
+  "UID": {
+    "Formula": "@NewGuid"
+  },
   "Who": {
     "Formula": "@UserName"
   },

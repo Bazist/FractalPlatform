@@ -22,6 +22,29 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                   .OpenForm(Constants.FIRST_DOC_ID);
         }
 
+        public override bool OnOpenForm(Context context, Collection collection, KeyMap key, uint docID)
+        {
+            if (key.GetFirstPathName() == "ViewPosts")
+            {
+                Log("Key={0}", key.ToString());
+
+                var uid = collection.DocumentStorage
+                                    .GetWhere(context, key)
+                                    .Value("{'ViewPosts':[{'UID':$}]}");
+
+                Log("Uid={0}", uid);
+
+                Client.SetDefaultCollection("Users")
+                      .GetWhere(DQL("{'Posts':[{'UID':@UID}]}", uid))
+                      .WantModifyExistingDocuments()
+                      .OpenForm("{'Posts':[{'OnDate':$,'Who':$,'Message':$,'Likes':[R,$]}]}");
+
+                return false;
+            }
+
+            return true;
+        }
+
         public void MyUser()
         {
             Client.SetDefaultCollection("Users")
@@ -120,7 +143,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
 
         private void Friend(KeyMap key, bool approve)
         {
-            if(Client.SetDefaultCollection("Users")
+            if (Client.SetDefaultCollection("Users")
                      .GetWhere(key)
                      .AndWhere(DQL("{'Friends':[{'Approved':@Approve}]}", approve))
                      .Any())
