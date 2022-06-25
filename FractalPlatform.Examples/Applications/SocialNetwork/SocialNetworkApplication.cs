@@ -154,7 +154,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
             return true;
         }
 
-        public override string OnComputedDimension(Context context, Storage storage, KeyMap key, AttrValue value, uint docID, string variable)
+        public override object OnComputedDimension(Context context, Storage storage, KeyMap key, AttrValue value, uint docID, string variable)
         {
             switch(variable)
             {
@@ -164,7 +164,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                                        .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
                                        .Value("{'Photo':$}");
 
-                    return string.Format("\"{0}\"", photo);
+                    return photo;
                 }
                 default:
                     return base.OnComputedDimension(context, storage, key, value, docID, variable);

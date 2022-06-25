@@ -90,7 +90,7 @@ namespace FractalPlatform.Examples.Applications.Forum
             return true;
         }
 
-        public override string OnComputedDimension(Context context, Storage storage, KeyMap key, AttrValue value, uint docID, string variable)
+        public override object OnComputedDimension(Context context, Storage storage, KeyMap key, AttrValue value, uint docID, string variable)
         {
             switch (variable)
             {
@@ -100,7 +100,7 @@ namespace FractalPlatform.Examples.Applications.Forum
                                           .GetDoc(docID)
                                           .Count("{'Messages':[{'Who':$}]}");
 
-                        return count.ToString();
+                        return count;
                     }
                 default:
                     throw new NotImplementedException();
