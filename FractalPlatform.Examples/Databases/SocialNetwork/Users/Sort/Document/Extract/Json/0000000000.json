@@ -5,5 +5,15 @@
   "Avatar": { "Index": 4 },
   "Friends": { "Index": 5 },
   "Posts": { "Index": 6 },
+  "ViewPosts": [
+    {
+      "OnDate": {
+        "Sort": {
+          "Enabled": true,
+          "IsAscending": false
+        }
+      }
+    }
+  ],
   "RequestFriend": { "Index": 7 }
 }
