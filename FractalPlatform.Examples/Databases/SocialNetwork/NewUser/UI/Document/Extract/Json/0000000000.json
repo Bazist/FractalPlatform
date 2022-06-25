@@ -3,7 +3,7 @@
   "Password": {
     "Style": "Password:true"
   },
-  "Avatar": {
+  "Photo": {
     "ControlType": "UploadFile"
   },
   "RequestFriend": {

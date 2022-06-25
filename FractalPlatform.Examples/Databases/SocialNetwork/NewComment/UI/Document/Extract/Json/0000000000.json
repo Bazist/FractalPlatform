@@ -1,12 +1,18 @@
 {
-  "Style": "Save:Register",
-  "Password": {
-    "Style": "Password:true"
+  "OnDate": {
+    "ControlType": "Calendar",
+    "Enabled": false
+  },
+  "Who": {
+    "Enabled": false
   },
   "Avatar": {
-    "ControlType": "UploadFile"
-  },
-  "RequestFriend": {
     "Visible": false
+  },
+  "Text": {
+    "ControlType": "RichTextBox"
+  },
+  "Picture": {
+    "ControlType": "UploadFile"
   }
 }

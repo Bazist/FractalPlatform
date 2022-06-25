@@ -1,7 +1,7 @@
 {
-  "Name": "",
-  "Password": "",
-  "Age": 0,
+  "OnDate": "",
+  "Who": "",
   "Avatar": "",
-  "RequestFriend": "Request Friend"
+  "Text": "",
+  "Picture": ""
 }

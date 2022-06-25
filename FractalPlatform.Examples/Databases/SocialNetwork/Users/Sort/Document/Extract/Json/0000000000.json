@@ -2,7 +2,7 @@
   "Name": { "Index": 1 },
   "Password": { "Index": 2 },
   "Age": { "Index": 3 },
-  "Avatar": { "Index": 4 },
+  "Photo": { "Index": 4 },
   "Friends": { "Index": 5 },
   "Posts": { "Index": 6 },
   "ViewPosts": [

@@ -154,6 +154,23 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
             return true;
         }
 
+        public override string OnComputedDimension(Context context, Storage storage, KeyMap key, AttrValue value, uint docID, string variable)
+        {
+            switch(variable)
+            {
+                case "Avatar":
+                    {
+                    var photo = Client.SetDefaultCollection("Users")
+                                       .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
+                                       .Value("{'Photo':$}");
+
+                    return string.Format("\"{0}\"", photo);
+                }
+                default:
+                    return base.OnComputedDimension(context, storage, key, value, docID, variable);
+            }
+        }
+
         private void Friend(KeyMap key, bool approve)
         {
             if (Client.SetDefaultCollection("Users")
