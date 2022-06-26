@@ -9,10 +9,12 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
 {
     public class SocialNetworkApplication : DashboardApplication
     {
-        public SocialNetworkApplication(string workingFolder,
-                               IFormFactory formFactory) : base(workingFolder,
-                                                                "SocialNetwork",
-                                                                formFactory)
+        public SocialNetworkApplication(Guid sessionId,
+                                        BigDocInstance instance,
+                                        IFormFactory formFactory) : base(sessionId,
+                                                                        instance,
+                                                                        formFactory,
+                                                                        "SocialNetwork")
         {
         }
 
@@ -74,7 +76,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
 
             Client.SetDefaultCollection("NewPost")
                  .WantCreateNewDocumentForArray("Users", docID, "{'Posts':[$]}")
-                 .OpenForm();
+                 .OpenForm(result => ViewPosts());
         }
 
         public void RequestFriend(uint docID)
