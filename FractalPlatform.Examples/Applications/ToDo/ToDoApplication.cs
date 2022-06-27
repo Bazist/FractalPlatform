@@ -7,10 +7,12 @@ namespace FractalPlatform.Examples.Applications.ToDo
 {
     public class ToDoApplication : BaseApplication
     {
-        public ToDoApplication(string workingFolder,
-                               IFormFactory formFactory) : base(workingFolder,
-                                                                "ToDo",
-                                                                formFactory)
+        public ToDoApplication(Guid sessionId,
+                               BigDocInstance instance,
+                               IFormFactory formFactory) : base(sessionId,
+                                                               instance,
+                                                               formFactory,
+                                                               "ToDo")
         {
         }
 

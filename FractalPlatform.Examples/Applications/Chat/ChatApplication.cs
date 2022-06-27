@@ -7,10 +7,12 @@ namespace FractalPlatform.Examples.Applications.Chat
 {
     public class ChatApplication : BaseApplication
     {
-        public ChatApplication(string workingFolder,
-                               IFormFactory formFactory) : base(workingFolder,
-                                                                "Chat",
-                                                                formFactory)
+        public ChatApplication(Guid sessionId,
+                               BigDocInstance instance,
+                               IFormFactory formFactory) : base(sessionId,
+                                                               instance,
+                                                               formFactory,
+                                                               "Chat")
         {
         }
 

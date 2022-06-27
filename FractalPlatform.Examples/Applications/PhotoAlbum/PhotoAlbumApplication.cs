@@ -1,15 +1,18 @@
 ﻿using BigDoc.Client;
 using BigDoc.Client.UI;
 using BigDoc.Database.Engine;
+using System;
 
 namespace FractalPlatform.Examples.Applications.PhotoAlbum
 {
     public class PhotoAlbumApplication : BaseApplication
     {
-        public PhotoAlbumApplication(string workingFolder,
-                               IFormFactory formFactory) : base(workingFolder,
-                                                                "PhotoAlbum",
-                                                                formFactory)
+        public PhotoAlbumApplication(Guid sessionId,
+                                     BigDocInstance instance,
+                                     IFormFactory formFactory) : base(sessionId,
+                                                                     instance,
+                                                                     formFactory,
+                                                                     "PhotoAlbum")
         {
         }
 

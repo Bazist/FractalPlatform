@@ -8,11 +8,13 @@ namespace FractalPlatform.Examples.Applications.Taxi
 {
     public class TaxiApplication : BaseApplication
     {
-        public TaxiApplication(string workingFolder,
-                               IFormFactory formFactory) : base(workingFolder,
-                                                                "Taxi",
-                                                                formFactory)
-        {
+        public TaxiApplication(Guid sessionId,
+                               BigDocInstance instance,
+                               IFormFactory formFactory) : base(sessionId,
+                                                                instance,
+                                                                formFactory,
+                                                                "Taxi")
+        { 
         }
 
         public override void OnStart(Context context)

@@ -8,10 +8,12 @@ namespace FractalPlatform.Examples.Applications.Forum
 {
     public class ForumApplication : DashboardApplication
     {
-        public ForumApplication(string workingFolder,
-                               IFormFactory formFactory) : base(workingFolder,
-                                                                "Forum",
-                                                                formFactory)
+        public ForumApplication(Guid sessionId,
+                                BigDocInstance instance,
+                                IFormFactory formFactory) : base(sessionId,
+                                                                instance,
+                                                                formFactory,
+                                                                "Forum")
         {
         }
 

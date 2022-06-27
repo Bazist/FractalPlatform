@@ -1,14 +1,17 @@
 ﻿using BigDoc.Client;
 using BigDoc.Database.Engine;
+using System;
 
 namespace FractalPlatform.Examples.Applications.Login
 {
     public class LoginApplication : DashboardApplication
     {
-        public LoginApplication(string workingFolder,
-                               IFormFactory formFactory) : base(workingFolder,
-                                                                "Login",
-                                                                formFactory)
+        public LoginApplication(Guid sessionId,
+                                 BigDocInstance instance,
+                                 IFormFactory formFactory) : base(sessionId,
+                                                                 instance,
+                                                                 formFactory,
+                                                                 "Login")
         {
         }
 

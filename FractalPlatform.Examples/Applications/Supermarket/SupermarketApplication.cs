@@ -11,17 +11,19 @@ namespace FractalPlatform.Examples.Applications.Supermarket
 {
     public class SupermarketApplication : BaseApplication
     {
-        public SupermarketApplication(string workingFolder,
-                               IFormFactory formFactory) : base(workingFolder,
-                                                                "Supermarket",
-                                                                formFactory)
+        public SupermarketApplication(Guid sessionId,
+                                      BigDocInstance instance,
+                                      IFormFactory formFactory) : base(sessionId,
+                                                                        instance,
+                                                                        formFactory,
+                                                                        "Supermarket")
         {
         }
 
         public override void OnStart(Context context)
         {
             Client.SetDefaultCollection("Dashboard")
-                  .OpenForm(1);
+                  .OpenForm(Constants.FIRST_DOC_ID);
         }
 
         private class LoginInfo
