@@ -1,6 +1,7 @@
 {
   "Name": "",
   "Password": "",
+  "Captcha": "",
   "Age": 0,
   "Photo": "",
   "RequestFriend": "Request Friend"

@@ -1,7 +1,10 @@
 {
   "Style": "Save:Register",
   "Password": {
-    "Style": "Password:true"
+    "Style": "SubType:Password"
+  },
+  "Captcha": {
+    "Style": "SubType:Captcha"
   },
   "Photo": {
     "ControlType": "UploadFile"

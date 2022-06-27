@@ -1,0 +1,7 @@
+{
+  "Name": {"Index": 1},
+  "Password": { "Index": 2 },
+  "Captcha": { "Index": 3 },
+  "Age": { "Index": 4 },
+  "Photo": { "Index": 5 }
+}
