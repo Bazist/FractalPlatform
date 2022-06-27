@@ -39,7 +39,8 @@ namespace FractalPlatform.Deployment
                                          string fileType,
                                          string fileName,
                                          byte[] fileBytes,
-                                         string deploymentKey)
+                                         string deploymentKey,
+                                         string deploymentParams = null)
         {
             using (var client = new HttpClient())
             {
@@ -47,7 +48,7 @@ namespace FractalPlatform.Deployment
                 {
                     content.Add(new StreamContent(new MemoryStream(fileBytes)), "upload", fileName);
 
-                    var url = $"{baseUrl}/Home/UploadFile?appName={appName}&fileType={fileType}&deploymentKey={deploymentKey}";
+                    var url = $"{baseUrl}/Home/UploadFile?appName={appName}&fileType={fileType}&deploymentKey={deploymentKey}&deploymentParams={deploymentParams}";
 
                     var response = await client.PostAsync(url, content);
 
@@ -64,6 +65,7 @@ namespace FractalPlatform.Deployment
                                               string assemblyFile,
                                               string deploymentKey,
                                               bool isDeployDatabase,
+                                              bool isRecreateDatabase,
                                               bool isDeployFiles,
                                               bool isDeployApplication)
         {
@@ -78,7 +80,13 @@ namespace FractalPlatform.Deployment
                 {
                     var fileBytes = await File.ReadAllBytesAsync(zipPath);
 
-                    await UploadAsync(baseUrl, appName, "Databases", $"{appName}.zip", fileBytes, deploymentKey);
+                    await UploadAsync(baseUrl,
+                                      appName,
+                                      "Databases",
+                                      $"{appName}.zip",
+                                      fileBytes,
+                                      deploymentKey,
+                                      isRecreateDatabase.ToString());
                 }
             }
 
@@ -91,7 +99,12 @@ namespace FractalPlatform.Deployment
                 {
                     var fileBytes = await File.ReadAllBytesAsync(zipPath);
 
-                    await UploadAsync(baseUrl, appName, "Files", $"{appName}.zip", fileBytes, deploymentKey);
+                    await UploadAsync(baseUrl,
+                                      appName,
+                                      "Files",
+                                      $"{appName}.zip",
+                                      fileBytes,
+                                      deploymentKey);
                 }
             }
 
@@ -136,6 +149,7 @@ namespace FractalPlatform.Deployment
                         options.Assembly,
                         options.DeploymentKey,
                         options.IsDeployDatabase,
+                        options.IsRecreateDatabase,
                         options.IsDeployFiles,
                         options.IsDeployApplication).Wait();
 

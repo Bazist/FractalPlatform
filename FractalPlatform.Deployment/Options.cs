@@ -10,6 +10,8 @@
 
         public bool IsDeployDatabase { get; set; }
 
+        public bool IsRecreateDatabase { get; set; }
+
         public bool IsDeployFiles { get; set; }
   
         public bool IsDeployApplication { get; set; }
