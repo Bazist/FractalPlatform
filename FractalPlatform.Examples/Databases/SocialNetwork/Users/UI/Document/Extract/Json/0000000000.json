@@ -20,12 +20,18 @@
   },
   "Posts": [
     {
+      "UID": {
+        "Visible": false
+      },
       "OnDate": {
         "ControlType": "Calendar"
       },
       "Message": {
         "ControlType": "RichTextBox",
         "ReadOnly": false
+      },
+      "Avatar": {
+        "ControlType": "Picture"
       },
       "Photo": {
         "ControlType": "Picture"

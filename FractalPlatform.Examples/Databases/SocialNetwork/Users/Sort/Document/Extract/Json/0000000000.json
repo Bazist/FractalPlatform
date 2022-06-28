@@ -8,14 +8,15 @@
   "Posts": [
     {
       "UID": { "Index": 7 },
-      "Who": { "Index": 8 },
-      "OnDate": { "Index": 9 },
-      "Message": { "Index": 10 },
-      "Photo": { "Index": 11 },
-      "Likes": { "Index": 12 },
-      "Comments": { "Index": 13 },
-      "NewComment": { "Index": 14 }
+      "Avatar": { "Index": 8 },
+      "Who": { "Index": 9 },
+      "OnDate": { "Index": 10 },
+      "Message": { "Index": 11 },
+      "Photo": { "Index": 12 },
+      "Likes": { "Index": 13 },
+      "Comments": { "Index": 14 },
+      "NewComment": { "Index": 15 }
     }
   ],
-  "RequestFriend": { "Index": 15 }
+  "RequestFriend": { "Index": 16 }
 }

@@ -13,34 +13,50 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
 
         public override string RenderGrid(GridDOMControl domControl)
         {
-            if(domControl.Key == "ViewPosts" ||
-               domControl.Key == "Posts")
+            if(domControl.Key == "ViewPosts")
             {
                 var sb = new StringBuilder();
 
-                sb.Append("<table border=1>");
-                                
+                int number = 0;
+
                 foreach(DataRow dr in domControl.DataTable.Rows)
                 {
-                    sb.Append(@$"<tr>
+                    var html = @"<a href='javascript:editGridRow(@GridName,@Number)'>
+                                 <table border=1>
+                                 <tr>
+                                    <td>
+                                        <img style='max-width:50px;max-height:50px' src='@Avatar'>
+                                    </td>
                                     <td align='left' style='width:100%' nowrap>
-                                       <div>{dr["Message"]}</div>
+                                       <div>@Message</div>
                                     </td>
                                     <td nowrap>
-                                       <div>{dr["Who"]}</div>
+                                       <div>@Who</div>
                                     </td>
                                     <td nowrap>
-                                       <div>{dr["OnDate"]}</div>
+                                       <div>@OnDate</div>
                                     </td>
                                  </tr>
                                  <tr>
-                                    <td colspan=3>
-                                       <img style='max-width:560px;max-height:560px' src='{GetFilesUrl()}{dr["Photo"]}'>
+                                    <td colspan=4>
+                                       <img style='max-width:560px;max-height:560px' src='@Photo'>
                                     </td>
-                                 </tr>");
-                }
+                                 </tr>
+                                 </table>
+                                 </a>";
 
-                sb.Append("</table>");
+                    html = html.Replace("@GridName", $"\"{domControl.GetEscapedName()}\"");
+                    html = html.Replace("@Number", number.ToString());
+                    html = html.Replace("@Message", dr["Message"].ToString());
+                    html = html.Replace("@Who", dr["Who"].ToString());
+                    html = html.Replace("@OnDate", dr["OnDate"].ToString());
+                    html = html.Replace("@Photo", GetFilesUrl() + dr["Photo"]);
+                    html = html.Replace("@Avatar", GetFilesUrl() + dr["Avatar"]);
+
+                    sb.Append(html);
+
+                    number++;
+                }
 
                 return sb.ToString();
             }

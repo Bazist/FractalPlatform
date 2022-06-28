@@ -2,8 +2,11 @@
   "UID": {
     "Visible": false
   },
+  "Avatar": {
+    "Visible": false
+  },
   "Who": {
-    "Enabled": false
+    "Visible": false
   },
   "OnDate": {
     "ControlType": "Calendar",
