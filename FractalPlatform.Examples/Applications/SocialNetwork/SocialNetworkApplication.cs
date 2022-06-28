@@ -18,10 +18,18 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
         {
         }
 
-        public override void OnStart(Context context)
+        private void Dashboard()
         {
             Client.SetDefaultCollection("Dashboard")
                   .OpenForm(Constants.FIRST_DOC_ID);
+        }
+
+        protected override void OnLogin(FormResult result)
+        {
+            if(result.Result)
+            {
+                Dashboard();
+            }
         }
 
         public override bool OnOpenForm(Context context, Collection collection, KeyMap key, uint docID)
@@ -57,17 +65,6 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                   .OpenForm();
         }
 
-        public void ViewPosts()
-        {
-            Client.SetDefaultCollection("Users")
-                  .GetWhere(DQL("{'Name':@Name}", UserContext.User.Name))
-                  .ToCollection("{'ViewPosts':[$]}", true)
-                  .ChangeDimension(UserContext,
-                                   DimensionType.UI,
-                                   "{'Style':'Save:false','ViewPosts':[{'Visible':true}]}")
-                  .OpenForm(UserContext);
-        }
-
         public void NewPost()
         {
             var docID = Client.SetDefaultCollection("Users")
@@ -76,7 +73,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
 
             Client.SetDefaultCollection("NewPost")
                  .WantCreateNewDocumentForArray("Users", docID, "{'Posts':[$]}")
-                 .OpenForm(result => ViewPosts());
+                 .OpenForm(result => Dashboard());
         }
 
         public void RequestFriend(uint docID)
@@ -136,9 +133,6 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                     break;
                 case "Users":
                     Users();
-                    break;
-                case "ViewPosts":
-                    ViewPosts();
                     break;
                 case "NewPost":
                     NewPost();

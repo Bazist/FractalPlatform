@@ -2,7 +2,7 @@
   "CollVersion": 2,
   "ViewPosts": {
     "Receive": {
-      "Query": "Collection.GetWhere({'Name':Document.Name}).OrWhere({'Friends':[Any,{'Name':Document.Name,'Approved':true}]}).Select({'Posts':[R,$]},true)",
+      "Query": "Collection.GetWhere({'Name':Document.UserName}).OrWhere({'Friends':[Any,{'Name':Document.UserName,'Approved':true}]}).Select({'Posts':[R,$]},true)",
       "Version": "0",
       "Enabled": true,
       "Connection": {

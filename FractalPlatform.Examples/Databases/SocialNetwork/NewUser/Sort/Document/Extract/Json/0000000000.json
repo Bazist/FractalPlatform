@@ -3,5 +3,6 @@
   "Password": { "Index": 2 },
   "Captcha": { "Index": 3 },
   "Age": { "Index": 4 },
-  "Photo": { "Index": 5 }
+  "Gender": {"Index": 5}
+  "Photo": { "Index": 6 }
 }

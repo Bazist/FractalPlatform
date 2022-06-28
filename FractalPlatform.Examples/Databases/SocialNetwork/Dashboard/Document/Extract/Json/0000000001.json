@@ -1,10 +1,7 @@
 {
   "UserName": "",
-  "LoginButton": "Log In",
-  "LogoutButton": "Log Out",
-  "Register": "Register",
+  "Logout": "Log Out",
   "MyUser": "My User",
   "Users": "Users",
-  "ViewPosts": "View Posts",
   "NewPost": "New Post"
 }

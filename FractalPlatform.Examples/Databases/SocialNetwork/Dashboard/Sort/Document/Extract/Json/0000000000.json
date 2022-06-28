@@ -1,10 +1,12 @@
 {
-  "UserName": { "Index": 1 },
-  "LoginButton": { "Index": 2 },
-  "LogoutButton": { "Index": 3 },
-  "Register": { "Index": 4 },
-  "MyUser": { "Index": 5 },
-  "Users": { "Index": 7 },
-  "ViewPosts": { "Index": 8 },
-  "NewPost": { "Index": 9 }
+  "ViewPosts": [
+    {
+      "OnDate": {
+        "Sort": {
+          "Enabled": true,
+          "IsAscending": false
+        }
+      }
+    }
+  ]
 }

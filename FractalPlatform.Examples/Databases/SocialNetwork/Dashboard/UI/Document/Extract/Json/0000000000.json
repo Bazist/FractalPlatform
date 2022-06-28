@@ -1,7 +1,27 @@
 {
-  "Style": "Save:false;Cancel:false",
-  "ControlType": "Button",
+  "Style": "Save:false;Cancel:false;Type:Link",
+  "Layout": "Dashboard",
   "UserName": {
-    "ControlType": "Label"
+    "ControlType": "Label",
+    "LayoutLocation": "UserName"
+  },
+  "Logout": {
+    "ControlType": "Button",
+    "LayoutLocation": "Logout"
+  },
+  "MyUser": {
+    "ControlType": "Button",
+    "LayoutLocation": "MyUser"
+  },
+  "Users": {
+    "ControlType": "Button",
+    "LayoutLocation": "Users"
+  },
+  "ViewPosts": {
+    "LayoutLocation": "ViewPosts"
+  },
+  "NewPost": {
+    "ControlType": "Button",
+    "LayoutLocation": "NewPost"
   }
 }

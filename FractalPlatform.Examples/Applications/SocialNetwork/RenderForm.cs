@@ -13,23 +13,34 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
 
         public override string RenderGrid(GridDOMControl domControl)
         {
-            if(domControl.Key == "Messages")
+            if(domControl.Key == "ViewPosts" ||
+               domControl.Key == "Posts")
             {
                 var sb = new StringBuilder();
+
+                sb.Append("<table border=1>");
                                 
                 foreach(DataRow dr in domControl.DataTable.Rows)
                 {
                     sb.Append(@$"<tr>
-                                    <td style='border:1px solid white'>
-                                       <img style='max-width:50px;max-height:50px' src='{GetFilesUrl()}{dr["Avatar"]}'>
+                                    <td align='left' style='width:100%' nowrap>
+                                       <div>{dr["Message"]}</div>
+                                    </td>
+                                    <td nowrap>
                                        <div>{dr["Who"]}</div>
+                                    </td>
+                                    <td nowrap>
                                        <div>{dr["OnDate"]}</div>
                                     </td>
-                                    <td  style='border:1px solid white' align='left'>
-                                        <div>{dr["Message"]}</div>
+                                 </tr>
+                                 <tr>
+                                    <td colspan=3>
+                                       <img style='max-width:560px;max-height:560px' src='{GetFilesUrl()}{dr["Photo"]}'>
                                     </td>
                                  </tr>");
                 }
+
+                sb.Append("</table>");
 
                 return sb.ToString();
             }

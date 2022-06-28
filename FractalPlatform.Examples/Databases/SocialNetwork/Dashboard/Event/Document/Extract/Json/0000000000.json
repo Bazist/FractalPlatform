@@ -1,21 +1,12 @@
 {
-  "LoginButton": {
-    "OnClick": "Login"
-  },
-  "LogoutButton": {
+  "Logout": {
     "OnClick": "Logout"
-  },
-  "Register": {
-    "OnClick": "Register"
   },
   "MyUser": {
     "OnClick": "MyUser"
   },
   "Users": {
     "OnClick": "Users"
-  },
-  "ViewPosts": {
-    "OnClick": "ViewPosts"
   },
   "NewPost": {
     "OnClick": "NewPost"

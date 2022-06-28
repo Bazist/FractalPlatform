@@ -5,6 +5,10 @@
   "Age": {
     "ReadOnly": false
   },
+  "Gender": {
+    "ControlType": "ComboBox",
+    "ReadOnly": false
+  },
   "Password": {
     "Visible": false
   },
@@ -30,31 +34,6 @@
         "ControlType": "Likes",
         "Enabled": true,
         "ReadOnly": false
-      },
-      "Comments": {
-        "ControlType": "Comments"
-      },
-      "NewComment": {
-        "ControlType": "Button",
-        "Enabled": true,
-        "ReadOnly": false
-      }
-    }
-  ],
-  "ViewPosts": [
-    {
-      "Visible": false,
-      "OnDate": {
-        "ControlType": "Calendar"
-      },
-      "Message": {
-        "ControlType": "RichTextBox"
-      },
-      "Photo": {
-        "ControlType": "Picture"
-      },
-      "Likes": {
-        "ControlType": "Likes"
       },
       "Comments": {
         "ControlType": "Comments"
