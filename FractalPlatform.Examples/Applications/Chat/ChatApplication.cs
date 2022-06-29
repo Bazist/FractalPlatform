@@ -25,7 +25,7 @@ namespace FractalPlatform.Examples.Applications.Chat
         public override void OnStart(Context context)
         {
             Client.SetDefaultCollection("Chats")
-                  .GetDoc(Constants.FIRST_DOC_ID)
+                  .GetFirstDoc()
                   .OpenForm(result =>
                   {
                       if (result.Result)
@@ -36,7 +36,7 @@ namespace FractalPlatform.Examples.Applications.Chat
                                               .SelectOne<MessageInfo>();
 
                           Client.SetDefaultCollection("Chats")
-                                .GetDoc(Constants.FIRST_DOC_ID)
+                                .GetFirstDoc()
                                 .Update(DQL("{'Messages':[Add,{'OnDate':@OnDate,'Who':@Who,'Message':@Message}]}",
                                             DateTime.Now,
                                             message.Who,

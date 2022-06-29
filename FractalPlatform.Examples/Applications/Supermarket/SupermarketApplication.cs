@@ -79,14 +79,14 @@ namespace FractalPlatform.Examples.Applications.Supermarket
                           foreach(var product in cart.Products)
                           {
                               var count = Client.SetDefaultCollection("Stock")
-                                                .GetDoc(Constants.FIRST_DOC_ID)
+                                                .GetFirstDoc()
                                                 .AndWhere(DQL("{'Products':[{'Product':@Product}]}", product.Product))
                                                 .Value(DQL("{'Products':[{'Count':$}]}"));
 
                               var newCount = int.Parse(count) - product.Count;
 
                               Client.SetDefaultCollection("Stock")
-                                                .GetDoc(Constants.FIRST_DOC_ID)
+                                                .GetFirstDoc()
                                                 .AndWhere(DQL("{'Products':[{'Product':@Product}]}", product.Product))
                                                 .Update(DQL("{'Products':[{'Count':@Count}]}", newCount));
 

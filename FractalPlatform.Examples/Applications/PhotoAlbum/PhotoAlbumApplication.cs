@@ -23,7 +23,7 @@ namespace FractalPlatform.Examples.Applications.PhotoAlbum
                   .OpenForm(result =>
                   {
                       Client.SetDefaultCollection("Photos")
-                            .GetDoc(Constants.FIRST_DOC_ID)
+                            .GetFirstDoc()
                             .OpenForm();
                   });
         }

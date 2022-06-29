@@ -19,7 +19,7 @@ namespace FractalPlatform.Examples.Applications.ToDoWithCategories
         public override void OnStart(Context context)
         {
             Client.SetDefaultCollection("ToDoColl")
-                  .GetDoc(Constants.FIRST_DOC_ID)
+                  .GetFirstDoc()
                   .WantModifyExistingDocuments()
                   .OpenForm();
         }
