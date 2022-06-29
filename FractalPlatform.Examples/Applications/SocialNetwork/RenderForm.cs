@@ -31,6 +31,11 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
             public List<PostInfo> Root { get; set; }
         }
 
+        public override string RenderStyles()
+        {
+            return @"";
+        }
+
         public override string RenderComponent(ComponentDOMControl domControl)
         {
             if (domControl.ControlType == "ViewPosts")
