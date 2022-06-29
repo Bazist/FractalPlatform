@@ -1,6 +1,6 @@
 ﻿using BigDoc.Client;
-using BigDoc.Client.UI.DOM.Controls.Grid;
-using System.Data;
+using BigDoc.Client.UI.DOM.Controls;
+using System.Collections.Generic;
 using System.Text;
 
 namespace FractalPlatform.Examples.Applications.SocialNetwork
@@ -11,19 +11,43 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
         {
         }
 
-        public override string RenderGrid(GridDOMControl domControl)
+        private class PostInfo
+        { 
+            public string Avatar { get; set; }
+            
+            public string Who { get; set; }
+            
+            public string OnDate { get; set; }
+            
+            public string Message { get; set; }
+
+            public string Photo { get; set; }
+
+            public List<string> Likes { get; set; }
+        }
+
+        private class PostsInfo
         {
-            if(domControl.Key == "ViewPosts")
+            public List<PostInfo> Root { get; set; }
+        }
+
+        public override string RenderComponent(ComponentDOMControl domControl)
+        {
+            if (domControl.ControlType == "ViewPosts")
             {
+                var posts = domControl.Storage
+                                     .GetAll(Application.UserContext)
+                                     .SelectOne<PostsInfo>();
+
                 var sb = new StringBuilder();
 
                 int number = 0;
 
-                foreach(DataRow dr in domControl.DataTable.Rows)
+                sb.Append("<table border=1>");
+
+                foreach (var post in posts.Root)
                 {
-                    var html = @"<a href='javascript:editGridRow(@GridName,@Number)'>
-                                 <table border=1>
-                                 <tr>
+                    var html = @"<tr style='cursor:pointer' onclick='javascript:editComponentRow(@ComponentName,@Number)'>
                                     <td>
                                         <img style='max-width:50px;max-height:50px' src='@Avatar'>
                                     </td>
@@ -36,33 +60,37 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                                     <td nowrap>
                                        <div>@OnDate</div>
                                     </td>
-                                 </tr>
-                                 <tr>
-                                    <td colspan=4>
-                                       <img style='max-width:560px;max-height:560px' src='@Photo'>
+                                    <td nowrap>
+                                       Likes: @Likes 
                                     </td>
                                  </tr>
-                                 </table>
-                                 </a>";
+                                 <tr>
+                                    <td colspan=5>
+                                       <img style='max-width:560px;max-height:560px' src='@Photo'>
+                                    </td>
+                                 </tr>";
 
-                    html = html.Replace("@GridName", $"\"{domControl.GetEscapedName()}\"");
+                    html = html.Replace("@ComponentName", $"\"{domControl.GetEscapedName()}\"");
                     html = html.Replace("@Number", number.ToString());
-                    html = html.Replace("@Message", dr["Message"].ToString());
-                    html = html.Replace("@Who", dr["Who"].ToString());
-                    html = html.Replace("@OnDate", dr["OnDate"].ToString());
-                    html = html.Replace("@Photo", GetFilesUrl() + dr["Photo"]);
-                    html = html.Replace("@Avatar", GetFilesUrl() + dr["Avatar"]);
+                    html = html.Replace("@Message", post.Message);
+                    html = html.Replace("@Who", post.Who);
+                    html = html.Replace("@OnDate", post.OnDate);
+                    html = html.Replace("@Photo", GetFilesUrl() + post.Photo);
+                    html = html.Replace("@Avatar", GetFilesUrl() + post.Avatar);
+                    html = html.Replace("@Likes", (post.Likes.Count - 1).ToString());
 
-                    sb.Append(html);
+                    sb.AppendLine(html);
 
                     number++;
                 }
+
+                sb.Append("</table>");
 
                 return sb.ToString();
             }
             else
             {
-                return base.RenderGrid(domControl);
+                return base.RenderComponent(domControl);
             }
         }
     }

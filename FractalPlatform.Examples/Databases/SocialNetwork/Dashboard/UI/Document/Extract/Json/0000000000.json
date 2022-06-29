@@ -18,6 +18,7 @@
     "LayoutLocation": "Users"
   },
   "ViewPosts": {
+    "ControlType": "ViewPosts",
     "LayoutLocation": "ViewPosts"
   },
   "NewPost": {

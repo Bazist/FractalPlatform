@@ -31,7 +31,8 @@
         "ReadOnly": false
       },
       "Avatar": {
-        "ControlType": "Picture"
+        "ControlType": "Picture",
+        "Width": 50
       },
       "Photo": {
         "ControlType": "Picture"
