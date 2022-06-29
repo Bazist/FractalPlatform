@@ -2,6 +2,8 @@
 using BigDoc.Client.UI.DOM.Controls;
 using System.Collections.Generic;
 using System.Text;
+using System;
+using System.Linq;
 
 namespace FractalPlatform.Examples.Applications.SocialNetwork
 {
@@ -50,7 +52,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
 
                 sb.Append("<table border=1>");
 
-                foreach (var post in posts.Root)
+                foreach (var post in posts.Root.OrderByDescending(x => DateTime.Parse(x.OnDate)))
                 {
                     var html = @"<tr style='cursor:pointer' onclick='javascript:editComponentRow(@ComponentName,@Number)'>
                                     <td>
