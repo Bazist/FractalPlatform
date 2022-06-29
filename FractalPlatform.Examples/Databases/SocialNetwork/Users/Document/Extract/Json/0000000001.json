@@ -3,7 +3,7 @@
   "Password": "2FC1C0BEB992CD7096975CFEBF9D5C3B",
   "Age": 21,
   "Gender": "Male",
-  "Photo": "",
+  "Photo": "bob.png",
   "Friends": [
     {
       "Name": "Tim",
@@ -17,11 +17,11 @@
   "Posts": [
     {
       "UID": "A942FCCB-0584-485E-BE0A-3DE324F8BD76",
-      "Avatar": "",
+      "Avatar": "bob.png",
       "Who": "Bob",
       "OnDate": "23.06.2022 11:24:12",
       "Message": "Hello from Bob !",
-      "Photo": "",
+      "Photo": "post1.jpg",
       "Likes": [ "Test" ],
       "NewComment": "New Comment"
     }

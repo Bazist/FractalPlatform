@@ -62,6 +62,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
         {
             Client.SetDefaultCollection("Users")
                   .GetAll()
+                  .WantModifyExistingDocuments()
                   .OpenForm();
         }
 

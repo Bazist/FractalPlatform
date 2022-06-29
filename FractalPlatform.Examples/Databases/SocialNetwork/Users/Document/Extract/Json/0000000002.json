@@ -3,15 +3,15 @@
   "Password": "2FC1C0BEB992CD7096975CFEBF9D5C3B",
   "Age": 21,
   "Gender": "Male",
-  "Photo": "",
+  "Photo": "tim.png",
   "Posts": [
     {
       "UID": "B942FCCB-0584-485E-BE0A-3DE324F8BD76",
-      "Avatar": "",
+      "Avatar": "tim.png",
       "Who": "Tim",
       "OnDate": "22.06.2022 11:24:12",
       "Message": "Hello from Tim !",
-      "Photo": "",
+      "Photo": "post2.jpg",
       "Likes": [ "Test" ],
       "NewComment": "New Comment"
     }

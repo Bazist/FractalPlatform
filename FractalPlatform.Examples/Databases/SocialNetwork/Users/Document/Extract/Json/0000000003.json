@@ -3,7 +3,7 @@
   "Password": "2FC1C0BEB992CD7096975CFEBF9D5C3B",
   "Age": 21,
   "Gender": "Female",
-  "Photo": "",
+  "Photo": "rebeca.png",
   "RequestFriend": "Request Friend",
   "Friends": [
     {
@@ -14,11 +14,11 @@
   "Posts": [
     {
       "UID": "C942FCCB-0584-485E-BE0A-3DE324F8BD76",
-      "Avatar": "",
+      "Avatar": "rebeca.png",
       "Who": "Rebeca",
       "OnDate": "21.06.2022 11:24:12",
       "Message": "Hello from Rebeca !",
-      "Photo": "",
+      "Photo": "post3.jpg",
       "Likes": [ "Test" ],
       "NewComment": "New Comment"
     }
