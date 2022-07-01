@@ -57,6 +57,8 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                     posts.Root[i].Number = i;
                 }
 
+                //test change
+
                 foreach (var post in posts.Root.OrderByDescending(x => DateTime.Parse(x.OnDate)))
                 {
                     var html = @"<tr style='cursor:pointer' onclick='javascript:editComponentRow(@ComponentName,@Number)'>
