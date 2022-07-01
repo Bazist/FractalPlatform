@@ -15,6 +15,8 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
 
         private class PostInfo
         { 
+            public int Number { get; set; }
+
             public string Avatar { get; set; }
             
             public string Who { get; set; }
@@ -48,9 +50,12 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
 
                 var sb = new StringBuilder();
 
-                int number = 0;
-
                 sb.Append("<table border=1>");
+
+                for (int i = 0; i < posts.Root.Count; i++)
+                {
+                    posts.Root[i].Number = i;
+                }
 
                 foreach (var post in posts.Root.OrderByDescending(x => DateTime.Parse(x.OnDate)))
                 {
@@ -78,7 +83,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                                  </tr>";
 
                     html = html.Replace("@ComponentName", $"\"{domControl.GetEscapedName()}\"");
-                    html = html.Replace("@Number", number.ToString());
+                    html = html.Replace("@Number", post.Number.ToString());
                     html = html.Replace("@Message", post.Message);
                     html = html.Replace("@Who", post.Who);
                     html = html.Replace("@OnDate", post.OnDate);
@@ -87,8 +92,6 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                     html = html.Replace("@Likes", (post.Likes.Count - 1).ToString());
 
                     sb.AppendLine(html);
-
-                    number++;
                 }
 
                 sb.Append("</table>");
