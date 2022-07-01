@@ -63,6 +63,7 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                 {
                     var html = @"<tr style='cursor:pointer' onclick='javascript:editComponentRow(@ComponentName,@Number)'>
                                     <td>
+                                        <h1>Test message</h1>
                                         <img style='max-width:50px;max-height:50px' src='@Avatar'>
                                     </td>
                                     <td align='left' style='width:100%' nowrap>
