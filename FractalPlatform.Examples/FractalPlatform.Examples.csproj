@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Databases\SocialNetwork\NewFolder\**" />
+    <EmbeddedResource Remove="Databases\SocialNetwork\NewFolder\**" />
+    <None Remove="Databases\SocialNetwork\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 

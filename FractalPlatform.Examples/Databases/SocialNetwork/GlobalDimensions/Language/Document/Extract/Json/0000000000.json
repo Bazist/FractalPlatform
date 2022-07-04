@@ -1,0 +1,22 @@
+﻿{
+   "AutoCreateNotFoundKeys": false,
+   "DefaultLanguage": "EN",
+   "Languages": [
+      "EN",
+      "UA",
+      "RU",
+      "GE"
+   ],
+   "Regexps": [
+      {
+         "Description": "Ignore numbers in values",
+         "Label": "[NUMBER]",
+         "Regexp": "[0-9]+"
+      },
+      {
+         "Description": "Ignore names in values",
+         "Label": ": [NAME]",
+         "Regexp": ": [a-zA-Z0-9]+"
+      }
+   ]
+}
