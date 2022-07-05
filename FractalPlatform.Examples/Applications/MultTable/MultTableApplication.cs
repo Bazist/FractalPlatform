@@ -102,7 +102,6 @@ namespace FractalPlatform.Examples.Applications.MultTable
 
                           var coll = new Collection(doc);
                           coll.SetDimension(UserContext, DimensionType.Validation, val);
-                          coll.SetDimension(UserContext, DimensionType.Wizard);
 
                           FormBuilder.OpenForm(UserContext, coll, Constants.FIRST_DOC_ID);
                       }
