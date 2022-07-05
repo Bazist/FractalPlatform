@@ -5,15 +5,5 @@
   },
   "UploadNewPhoto": {
     "ControlType": "Link"
-  },
-  "Photos": [
-    {
-      "Title": {
-        "ControlType": "Label"
-      },
-      "Photo": {
-        "ControlType": "Picture"
-      }
-    }
-  ]
+  }
 }
