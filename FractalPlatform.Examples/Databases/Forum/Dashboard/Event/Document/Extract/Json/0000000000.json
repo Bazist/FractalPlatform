@@ -1,8 +1,8 @@
 {
-  "LoginButton": {
+  "Login": {
     "OnClick": "Login"
   },
-  "LogoutButton": {
+  "Logout": {
     "OnClick": "Logout"
   },
   "Register": {

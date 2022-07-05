@@ -1,7 +1,7 @@
 {
   "UserName": "",
-  "LoginButton": "Log In",
-  "LogoutButton": "Log Out",
+  "Login": "Log In",
+  "Logout": "Log Out",
   "Register": "Register",
   "Topics": "Topics",
   "NewTopic": "New Topic"
