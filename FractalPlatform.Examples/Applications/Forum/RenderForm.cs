@@ -20,12 +20,12 @@ namespace FractalPlatform.Examples.Applications.Forum
                 foreach(DataRow dr in domControl.DataTable.Rows)
                 {
                     sb.Append(@$"<tr>
-                                    <td style='border:1px solid white'>
-                                       <img style='max-width:50px;max-height:50px' src='{GetFilesUrl()}{dr["Avatar"]}'>
+                                    <td style='border:1px solid white' align='center'>
+                                       <img style='max-width:120px;max-height:120px' src='{GetFilesUrl()}{dr["Avatar"]}'>
                                        <div>{dr["Who"]}</div>
                                        <div>{dr["OnDate"]}</div>
                                     </td>
-                                    <td  style='border:1px solid white' align='left'>
+                                    <td  style='border:1px solid white' align='left' valign='top'>
                                         <div>{dr["Message"]}</div>
                                     </td>
                                  </tr>");

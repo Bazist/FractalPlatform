@@ -1,4 +1,5 @@
 {
+  "Style": "Save:false;Cancel:false",
   "ControlType": "Button",
   "UserName": {
     "ControlType": "Label"
