@@ -237,6 +237,12 @@
       "UA": "Запит в друзі"
     },
     {
+      "EN": "Request Friend",
+      "GE": "Request Friend",
+      "RU": "Запрос в друзья",
+      "UA": "Запит в друзі"
+    },
+    {
       "EN": "NewPost",
       "GE": "NewPost",
       "RU": "Добавить пост",
