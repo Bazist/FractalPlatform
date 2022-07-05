@@ -52,13 +52,6 @@ namespace FractalPlatform.Examples.Applications.MultTable
 
         }
 
-        public override bool OnCloseForm(Context context, Collection collection, KeyMap key, uint docID)
-        {
-            OnStart(context);
-
-            return true;
-        }
-
         public override void OnStart(Context context)
         {
             Client.SetDefaultCollection("Setting")
