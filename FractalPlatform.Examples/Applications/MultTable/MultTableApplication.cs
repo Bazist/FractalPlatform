@@ -54,20 +54,22 @@ namespace FractalPlatform.Examples.Applications.MultTable
 
         public override bool OnCloseForm(Context context, Collection collection, KeyMap key, uint docID)
         {
-            return collection.Name != "Doc";
+            OnStart(context);
+
+            return true;
         }
 
         public override void OnStart(Context context)
         {
             Client.SetDefaultCollection("Setting")
-                  .GetDoc(1)
+                  .GetDoc(Constants.FIRST_DOC_ID)
                   .OpenForm(null, null, result =>
                   {
                       if (result.Result)
                       {
                           var setting = result.Collection
                                               .DocumentStorage
-                                              .GetDoc(UserContext, 1)
+                                              .GetDoc(UserContext, Constants.FIRST_DOC_ID)
                                               .SelectOne<Setting>();
 
                           var sbDoc = new StringBuilder();
@@ -97,11 +99,11 @@ namespace FractalPlatform.Examples.Applications.MultTable
                           sbDoc.Append('}');
                           sbVal.Append('}');
 
-                          var doc = new BUFStorage("Doc");
+                          var doc = new BUFStorage("Document");
                           doc.Init();
                           doc.FromJson(sbDoc.ToString(), Constants.FIRST_DOC_ID);
 
-                          var val = new BUFStorage("Val");
+                          var val = new BUFStorage("Validation");
                           val.Init();
                           val.FromJson(sbVal.ToString(), Constants.BASE_DOC_ID);
 
