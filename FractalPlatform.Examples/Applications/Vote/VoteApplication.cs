@@ -3,7 +3,7 @@ using BigDoc.Client.UI;
 using BigDoc.Database.Engine;
 using System;
 
-namespace FractalPlatform.Examples.Applications.VoteApplication
+namespace FractalPlatform.Examples.Applications.Vote
 {
     public class VoteApplication : BaseApplication
     {
