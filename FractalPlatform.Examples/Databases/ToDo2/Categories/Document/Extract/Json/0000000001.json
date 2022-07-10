@@ -1,0 +1,97 @@
+{
+  "Name": "Health",
+  "SubCategories": [
+    {
+      "Name": "Eating",
+      "Subjects": {
+        "Peoples": [
+          {
+            "Name": "Petro",
+            "Location": "Kyiv",
+            "Price": 10
+          },
+          {
+            "Name": "Mykola",
+            "Location": "Kyiv",
+            "Price": 20
+          }
+        ],
+        "Companies": [
+          {
+            "Name": "Bar",
+            "Location": "Kyiv"
+          },
+          {
+            "Name": "Cafe",
+            "Location": "Vynnitsa"
+          }
+        ],
+        "Entertaiments": [
+          {
+            "Name": "Festival",
+            "Location": "Kyiv"
+          },
+          {
+            "Name": "Ceremony",
+            "Location": "Vynnitsa"
+          }
+
+        ]
+      },
+      "Objects": {
+        "Material": [ "Eat", "Dishes" ],
+        "Virtual": [ "Program", "Mobile" ],
+        "Conceptions": [ "Cinema", "Books" ]
+      },
+      "Actions": {
+        "Name": "Question-Answer"
+      }
+    },
+    {
+      "Name": "Medicine",
+      "Subjects": {
+        "Peoples": [
+          {
+            "Name": "Petro",
+            "Location": "Kyiv",
+            "Price": 10
+          },
+          {
+            "Name": "Mykola",
+            "Location": "Kyiv",
+            "Price": 20
+          }
+        ],
+        "Companies": [
+          {
+            "Name": "Bar",
+            "Location": "Kyiv"
+          },
+          {
+            "Name": "Cafe",
+            "Location": "Vynnitsa"
+          }
+        ],
+        "Entertaiments": [
+          {
+            "Name": "Festival",
+            "Location": "Kyiv"
+          },
+          {
+            "Name": "Ceremony",
+            "Location": "Vynnitsa"
+          }
+
+        ]
+      },
+      "Objects": {
+        "Material": [ "Eat", "Dishes" ],
+        "Virtual": [ "Program", "Mobile" ],
+        "Conceptions": [ "Cinema", "Books" ]
+      },
+      "Actions": {
+        "Name": "Question-Answer"
+      }
+    }
+  ]
+}
