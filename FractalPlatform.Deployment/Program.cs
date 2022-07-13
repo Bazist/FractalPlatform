@@ -54,7 +54,9 @@ namespace FractalPlatform.Deployment
 
                     if (response.StatusCode != System.Net.HttpStatusCode.OK)
                     {
-                        throw new Exception($"Wrong status code: {response.StatusCode}");
+                        var error = await response.Content.ReadAsStringAsync();
+
+                        throw new Exception(error);
                     }
                 }
             }
