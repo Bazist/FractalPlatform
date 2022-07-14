@@ -5,8 +5,8 @@
     "ControlType": "Label",
     "LayoutLocation": "UserName"
   },
-  "Logout": {
-    "ControlType": "Button",
+  "LogOut": {
+    "ControlType": "Link",
     "LayoutLocation": "Logout"
   },
   "MyUser": {

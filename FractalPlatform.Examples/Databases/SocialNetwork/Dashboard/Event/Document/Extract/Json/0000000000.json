@@ -1,7 +1,4 @@
 {
-  "Logout": {
-    "OnClick": "Logout"
-  },
   "MyUser": {
     "OnClick": "MyUser"
   },

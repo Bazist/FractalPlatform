@@ -123,9 +123,6 @@ namespace FractalPlatform.Examples.Applications.SocialNetwork
                 case "Login":
                     Login("Rebeca", "Bob");
                     break;
-                case "Logout":
-                    Logout();
-                    break;
                 case "Register":
                     Register();
                     break;
