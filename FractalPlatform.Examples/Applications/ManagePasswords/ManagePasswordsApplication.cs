@@ -3,7 +3,7 @@ using BigDoc.Client.UI;
 using BigDoc.Database.Engine;
 using System;
 
-namespace FractalPlatform.Examples.Applications.ToDo
+namespace FractalPlatform.Examples.Applications.ManagePasswords
 {
     public class ManagePasswordsApplication : BaseApplication
     {
