@@ -1,0 +1,6 @@
+{
+  "Passwords": {
+    "EncryptAlgorithm": "DES",
+    "DecryptAlgorithm": "DES"
+  }
+}
